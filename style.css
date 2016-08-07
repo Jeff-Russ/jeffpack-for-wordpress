@@ -1,0 +1,162 @@
+/*
+Theme Name: Colorcards
+Theme URI: www.jeffruss.com
+Description: A child theme of Twenty Sixteen with a playful yet professional look emphasizing natural looking depth, colors and textures.  
+Author: Jeffrey Russ
+Author URI: https://github.com/Jeff-Russ
+Template: twentysixteen
+Version:  0.0.1
+*/
+
+@import url("../twentysixteen/style.css");
+
+/*#############################################################################*/
+/*      OVERRIDES BY Jeff-Russ for twentysixteen/style.css                     */
+/*#############################################################################*/
+
+/******************************************************************************/
+/* GLOBALS */
+body { font-family: 'Mate', serif !important; }
+/*** A Pinstripe Pattern ***/
+
+
+/******************************************************************************/
+/* CODE */
+code, kbd, tt, var, samp, pre {
+  font-family: Inconsolata, monospace; font-size: 1em!important;
+  background-color: #C6BFB4!important; border-radius:7px; }
+/** Code Blocks **/
+pre      { background-color: #464040!important; padding:4px; }
+pre code { background-color: inherit!important; color: #8DB386; }
+
+
+/******************************************************************************/
+/* SITE HEADER */
+.site-header      { padding:1%!important; }
+.site-header-main { padding: 0.5% !important; color:#c7ae70!important; }
+.site-branding    { margin:1%!important; padding-left:5%!important; }
+.site-title a     { color:#D2CAC0!important; }
+
+
+/******************************************************************************/
+/* FORMAT THE footer (CREDITS) TO ALWAYS BE AT BOTTOM  */
+@media screen and (min-width: 61.5625em) {
+  /** Format the Footer (credits) position  **/
+  body:not(.search-results) article:not(.type-page) .entry-footer, .entry-content {
+      float: left!important;
+      margin-left: 1em;
+      margin-top: 0.1538461538em;
+      width: 100%;
+  }
+  /*** Format the Footer (credits) position  (cont.) ***/
+  body:not(.search-results) article:not(.type-page) .entry-footer > span:not(:first-child):before {
+    display: inline;
+  }
+  /*** Format the Footer (credits) position  (cont.) ***/
+  .single .byline,
+  .full-size-link,
+  body:not(.search-results).group-blog .byline,
+  body:not(.search-results) .entry-format,
+  body:not(.search-results) .cat-links,
+  body:not(.search-results) .tags-links,
+  body:not(.search-results) article:not(.sticky) .posted-on,
+  body:not(.search-results) article:not(.type-page) .comments-link,
+  body:not(.search-results) article:not(.type-page) .entry-footer .edit-link {
+    display: inline-block;
+    margin-bottom: 0.5384615385em;
+  }
+  /** Format the Footer (credits) to always be inline, separateed by '/'s  **/
+  .entry-footer > span:not(:last-child):after {
+      content: "\002f"!important;
+      display: inline-block!important;
+      padding: 0 0.538461538em!important;
+  }
+}
+/******************************************************************************/
+/* STYLE APPEARANCE OF VARIOUS BOXED AREAS */
+
+/** Multiple Selectors **/
+.widget, .entry-header, article {
+  border-radius:4px; transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
+
+#page { 
+  /* a brown pinstripe background */
+  background-color: #42382a; /* <- fallback in case image does not work*/
+  background: url(
+  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAABCAYAAAD9yd/wAAAAIklEQVQIW2O0N1f/z8DAwMDMyMzAwc7C8OPnH4a///8yAABB8Aeezt24ZgAAAABJRU5ErkJggg==
+  ) repeat; } 
+
+/** Widget Boxes **/
+.widget { padding: 10px;
+  /* A yellowish background  */
+  background: #c7ae70; /* <- fallback in case image does not work*/
+  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
+    inset 0px 2px 12px 4px #e5bf5f; /*inner shadow!*/
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAFVBMVEXHrnDHsXHJsG/KsWzHr23Ls2vHr2k9IFeLAAAAQElEQVQI12MAAZYEBgYlCGUqyMAcAKJYmIBUmqqYgwIDgwuQAioTZGAwhlEgwGrAwMDEwMIKVMGswMYEFnEDkgAEMwVuBYmt6gAAAABJRU5ErkJggg==
+    ) repeat; } 
+.widget:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.40), 0 10px 20px rgba(0,0,0,0.40);}
+
+/** entry-header Boxes **/
+.entry-header {
+  /* A yellowish background  */
+  background: #c7ae70; /* <- fallback in case image does not work*/
+  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
+    inset 0px 2px 12px 4px #e5bf5f; /*inner shadow!*/
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAFVBMVEXHrnDHsXHJsG/KsWzHr23Ls2vHr2k9IFeLAAAAQElEQVQI12MAAZYEBgYlCGUqyMAcAKJYmIBUmqqYgwIDgwuQAioTZGAwhlEgwGrAwMDEwMIKVMGswMYEFnEDkgAEMwVuBYmt6gAAAABJRU5ErkJggg==
+    ) repeat; }
+
+/** Article Content Boxes **/
+article {
+  /* A peach background */
+  background: #cab69b; /* <- fallback in case image does not work*/
+  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
+    inset 0px 2px 12px 4px #d7d7b0; /*inner shadow!*/
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAHlBMVEXKtpvMs5rFtZjKt5vGtZrIsprFspvKvJvGuJvLrpnlWPdZAAAAQUlEQVQI12NQYAABIAUFTAKCTAwMzEYgijGiEigCpYCCZgImCQwsDGwCLA4MbIEsTMEFQIoBRDG4AOUNGBicQOoA4eIGjxl8VTsAAAAASUVORK5CYII=
+    ) repeat; 
+}
+
+/* Less than 710px */
+
+.content-area {
+  padding: 0 1.6923%;
+  width: 100%; }
+
+/* 710px - 782px */
+@media screen and (min-width: 44.375em) {
+
+  .content-area {
+    padding: 0 4.6923%;
+    width: 100%; }
+
+}
+
+/* 783px - 909px */
+@media screen and (min-width: 48.9375em) {
+
+  .content-area {
+    padding: 0 9.6923%;
+    width: 100%; }
+
+}
+
+/* 910px - 984px (smallest with sidebar)*/
+@media screen and (min-width: 56.875em) {
+
+
+  .site-content { padding: 0 4.5455%; }
+  .content-area { float: left;
+    margin-right: -100%;
+    width: 70%!important; }
+}
+
+/* 985px - 1199px */
+@media screen and (min-width: 61.5625em) {
+
+}
+
+/* 1200px+ */
+@media screen and (min-width: 75em) {
+
+}
+
