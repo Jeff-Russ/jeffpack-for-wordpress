@@ -14,9 +14,73 @@ Version:  0.0.1
 /*      OVERRIDES BY Jeff-Russ for twentysixteen/style.css                     */
 /*#############################################################################*/
 
-/******************************************************************************/
 /* GLOBALS */
-body { font-family: 'Mate', serif !important; }
+body,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+{ font-family: 'Mate', serif !important; color:#604E39!important;}
+
+a { color:#227a91!important;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #227a91;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+a,
+.entry-content a,
+.entry-content a:focus,
+.entry-summary a,
+.entry-summary a:focus,
+.taxonomy-description a,
+.taxonomy-description a:focus,
+.logged-in-as a,
+.logged-in-as a:focus,
+.comment-content a,
+.comment-content a:focus,
+.pingback .comment-body > a,
+.pingback .comment-body > a:focus,
+.textwidget a,
+.textwidget a:focus,
+.entry-footer a,
+.entry-footer a:focus,
+.site-info a,
+.site-info a:focus {
+  box-shadow: none!important;
+}
+a:hover,
+.entry-content a:hover,
+.entry-summary a:hover,
+.taxonomy-description a:hover,
+.logged-in-as a:hover,
+.comment-content a:hover,
+.pingback .comment-body > a:hover,
+.textwidget a:hover,
+.entry-footer a:hover,
+.site-info a:hover {
+  color: #0F83A6!important;
+  box-shadow: 0 1px 0 0 rgba(0, 138, 184, 0.4)!important;
+}
+
+input {background:#EDE6DC!important;}
+
 /*** A Pinstripe Pattern ***/
 
 
@@ -77,44 +141,68 @@ pre code { background-color: inherit!important; color: #8DB386; }
 
 /** Multiple Selectors **/
 .widget, .entry-header, article {
-  border-radius:4px; transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
+.widget,article { border-radius:10px;  }
+.entry-header   { border-radius:10px 10px 0px 0px;  }
 
 #page { 
   /* a brown pinstripe background */
-  background-color: #42382a; /* <- fallback in case image does not work*/
-  background: url(
-  data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAABCAYAAAD9yd/wAAAAIklEQVQIW2O0N1f/z8DAwMDMyMzAwc7C8OPnH4a///8yAABB8Aeezt24ZgAAAABJRU5ErkJggg==
-  ) repeat; } 
+/*  background-color: #4a3b27;
+*/  
+  color:#684237!important;
+  background: #493631;
+  background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png);
+} 
+.widget, article { background: #ddd3b6; }
+
+/*#bfb59c box bg*/
 
 /** Widget Boxes **/
 .widget { padding: 10px;
-  /* A yellowish background  */
-  background: #c7ae70; /* <- fallback in case image does not work*/
-  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
-    inset 0px 2px 12px 4px #e5bf5f; /*inner shadow!*/
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAFVBMVEXHrnDHsXHJsG/KsWzHr23Ls2vHr2k9IFeLAAAAQElEQVQI12MAAZYEBgYlCGUqyMAcAKJYmIBUmqqYgwIDgwuQAioTZGAwhlEgwGrAwMDEwMIKVMGswMYEFnEDkgAEMwVuBYmt6gAAAABJRU5ErkJggg==
-    ) repeat; } 
-.widget:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.40), 0 10px 20px rgba(0,0,0,0.40);}
+  box-shadow: 0 -1px 10px rgba(100,0,0,0.40),
+  inset 0px 2px 12px 4px #b4c0a0;
+ } 
+.widget:hover { box-shadow: 0 -1px 50px rgba(0,0,0,0.40); }
 
+/*.widget-title { color: #673e32; }
+*/
 /** entry-header Boxes **/
-.entry-header {
-  /* A yellowish background  */
-  background: #c7ae70; /* <- fallback in case image does not work*/
-  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
-    inset 0px 2px 12px 4px #e5bf5f; /*inner shadow!*/
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAFVBMVEXHrnDHsXHJsG/KsWzHr23Ls2vHr2k9IFeLAAAAQElEQVQI12MAAZYEBgYlCGUqyMAcAKJYmIBUmqqYgwIDgwuQAioTZGAwhlEgwGrAwMDEwMIKVMGswMYEFnEDkgAEMwVuBYmt6gAAAABJRU5ErkJggg==
-    ) repeat; }
+.entry-header { 
+  background: #89A989; /* modified mintcream background */
+  box-shadow: inset 0px 1px 8px 1px #A5Cf93; 
+ }
+.widget-title, .entry-header a {
+  font-family: 'Mate', serif !important;
+  font-weight:300!important;
+  color: #673e32!important;
+}
+.entry-header a {
+  font-size: 0.6em!important;
+}
+
+
+.entry-header, .entry-content, .entry-footer {
+  padding-top: 1px!important;
+  padding-right: 5px!important;
+  padding-left: 25px!important;
+}
+.entry-content, .entry-footer {
+  padding-bottom: 20px !important;
+}
 
 /** Article Content Boxes **/
-article {
-  /* A peach background */
-  background: #cab69b; /* <- fallback in case image does not work*/
-  box-shadow: 0 7px 10px rgba(0,0,0,0.40), 0 5px 15px rgba(0,0,0,0.40),
-    inset 0px 2px 12px 4px #d7d7b0; /*inner shadow!*/
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAHlBMVEXKtpvMs5rFtZjKt5vGtZrIsprFspvKvJvGuJvLrpnlWPdZAAAAQUlEQVQI12NQYAABIAUFTAKCTAwMzEYgijGiEigCpYCCZgImCQwsDGwCLA4MbIEsTMEFQIoBRDG4AOUNGBicQOoA4eIGjxl8VTsAAAAASUVORK5CYII=
-    ) repeat; 
+article { margin-bottom: 50px!important;
+  box-shadow: 0 -1px 10px rgba(100,0,0,0.40),
+  inset 0px 2px 12px 4px #b4c0a0;
 }
+article:hover { box-shadow: 0 -1px 30px rgba(0,0,0,0.40); }
+
+
+.entry-header, article, .widget {
+  background-image: 
+  url("https://s3.amazonaws.com/transparent-textures/paper/paper-1.png");
+}
+
 
 /* Less than 710px */
 
@@ -159,4 +247,3 @@ article {
 @media screen and (min-width: 75em) {
 
 }
-
