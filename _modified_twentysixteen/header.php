@@ -19,6 +19,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
+	<link href='https://fonts.googleapis.com/css?family=Mate' rel='stylesheet' type='text/css'><!--JLR-->
 </head>
 
 <body <?php body_class(); ?>>
