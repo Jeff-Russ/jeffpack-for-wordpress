@@ -204,13 +204,13 @@ article:hover { box-shadow: 0 -1px 30px rgba(0,0,0,0.40); }
 }
 
 
-/* Less than 710px */
+/* Less than 710px - XXS 640w960 iPhone4 */
 
 .content-area {
   padding: 0 1.6923%;
   width: 100%; }
 
-/* 710px - 782px */
+/* 710px - 782px - XS 750w1334 iPhone 6s */
 @media screen and (min-width: 44.375em) {
 
   .content-area {
@@ -219,7 +219,7 @@ article:hover { box-shadow: 0 -1px 30px rgba(0,0,0,0.40); }
 
 }
 
-/* 783px - 909px */
+/* 783px - 909px - 800w480 Galaxy S */
 @media screen and (min-width: 48.9375em) {
 
   .content-area {
@@ -228,7 +228,7 @@ article:hover { box-shadow: 0 -1px 30px rgba(0,0,0,0.40); }
 
 }
 
-/* 910px - 984px (smallest with sidebar)*/
+/* 910px - 984px (smallest with sidebar) - MD 960w640 iPhone 4 */
 @media screen and (min-width: 56.875em) {
 
 
@@ -238,12 +238,12 @@ article:hover { box-shadow: 0 -1px 30px rgba(0,0,0,0.40); }
     width: 70%!important; }
 }
 
-/* 985px - 1199px */
+/* 985px - 1199px - LG 1024w768 iPad mini */
 @media screen and (min-width: 61.5625em) {
 
 }
 
-/* 1200px+ */
+/* 1200px+ - XL 1280w800 MBP */
 @media screen and (min-width: 75em) {
 
 }
