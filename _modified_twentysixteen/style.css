@@ -457,6 +457,8 @@ body {
 	/* Fallback for when there is no custom background color defined. */
 }
 
+.site { margin: 1%; }/*JLR*/
+
 hr {
 	background-color: #d1d1d1;
 	border: 0;
@@ -1561,7 +1563,8 @@ body { /*JLR*/
  */
 
 .site-header {
-	padding: 2.625em 7.6923%;
+/*	padding: 2.625em 7.6923%;
+*/	/*JLR*/
 }
 
 .site-header-main {
@@ -1577,7 +1580,8 @@ body { /*JLR*/
 }
 
 .site-branding {
-	margin: 0.875em auto 0.875em 0;
+/*	margin: 0.875em auto 0.875em 0;
+*/	margin: 1% 9% 2% 9%;  /*JLR*/
 	/* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
 	max-width: 100%;
 	min-width: 0;
@@ -1695,9 +1699,16 @@ body { /*JLR*/
 .entry-content,
 .entry-footer,
 .page-content {
-	margin-right: 7.6923%;
+/*	margin-right: 7.6923%;
 	margin-left: 7.6923%;
+*/ /*JLR: replace with below*/
 }
+
+.entry-header  { margin-left: 2%; margin-right: 2%; }
+.entry-summary { margin-left: 5%; margin-right: 5%; }
+.entry-content { margin-left: 9%; margin-right: 9%; }
+.entry-footer  { margin-left: 5%; margin-right: 5%; }
+.page-content  { margin-left: 2%; margin-right: 2%; }
 
 .entry-title {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
@@ -2411,7 +2422,8 @@ body.search-no-results .page-header {
 
 .sidebar {
 	margin-bottom: 3.5em;
-	padding: 0 7.6923%;
+/*	padding: 0 7.6923%;
+*/	padding: 0 5%; /*JLR*/
 }
 
 
@@ -2751,7 +2763,6 @@ p > video {
 	body:not(.custom-background-image):before,
 	body:not(.custom-background-image):after {
 		background: none; /*JLR to fix glitch*/
-		background: inherit;
 		content: "";
 		display: block;
 		height: 21px;
@@ -2774,7 +2785,8 @@ p > video {
 	}
 
 	.site {
-		margin: 21px;
+/*		margin: 21px;
+*/		margin: 1%; /*JLR*/
 	}
 
 	.site-main {
@@ -2782,7 +2794,8 @@ p > video {
 	}
 
 	.site-header {
-		padding: 3.9375em 7.6923%;
+/*		padding: 3.9375em 7.6923%;
+*/		/*JLR*/
 	}
 
 	.site-branding {
@@ -2983,8 +2996,13 @@ p > video {
 
 @media screen and (min-width: 56.875em) {
 	.site-header {
-		padding-right: 4.5455%;
+/*		padding-right: 4.5455%;
 		padding-left: 4.5455%;
+*/	/*JLR*/
+	}
+
+	.site-branding {
+		margin-left: 9%; /*JLR: 4.5% + 4.5% */
 	}
 
 	.site-header-main {
@@ -3126,7 +3144,9 @@ p > video {
 	}
 
 	.site-content {
-		padding: 0 4.5455%;
+/*		padding: 0 4.5455%;
+*/		padding: 3.5%; /*JLR*/
+		margin: 0 4.5%; /*JLR*/
 	}
 
 	.content-area {
@@ -3419,7 +3439,8 @@ p > video {
 	}
 
 	.site-header {
-		padding: 5.25em 4.5455%;
+/*		padding: 5.25em 4.5455%;
+*/	/*JLR*/
 	}
 
 	.site-branding,
@@ -3948,7 +3969,8 @@ p > video {
 	}
 
 	.site-header {
-		padding: 0 0 1.75em;
+/*		padding: 0 0 1.75em;
+*/	/*JLR*/
 	}
 
 	.site-branding {
@@ -3994,3 +4016,4 @@ p > video {
 		padding: 0;
 	}
 }
+
