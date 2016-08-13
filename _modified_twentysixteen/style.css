@@ -1521,8 +1521,13 @@ blockquote:after,
  * 11.0 - Content
  */
 
+body { /*JLR*/
+	background-color: #493631; /*JLR*/
+	background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png);/*JLR*/
+}
+
 .site {
-	background-color: #fff;
+	background-color: none;/*JLR*/
 }
 
 .site-inner {
@@ -1533,6 +1538,8 @@ blockquote:after,
 
 .site-content {
 	word-wrap: break-word;
+	background-color: #ddd3b6; /*JLR*/
+	border-radius:10px; /*JLR*/
 }
 
 /* Do not show the outline on the skip link target. */
@@ -1595,13 +1602,17 @@ blockquote:after,
 	margin: 0;
 }
 
-.site-branding .site-title a {
-	color: #1a1a1a;
+.site-branding .site-title a,
+.site-description /*JLR*/
+{
+/*	color: #1a1a1a;
+*/	color: #ddd3b6; /*JLR*/
 }
 
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus {
-	color: #007acc;
+/*	color: #007acc;
+*/	color: #007acc; /*JLR*/
 }
 
 .wp-custom-logo .site-title {
@@ -1609,7 +1620,8 @@ blockquote:after,
 }
 
 .site-description {
-	color: #686868;
+/*	color: #686868;
+*/	/*JLR*/
 	display: none;
 	font-size: 13px;
 	font-size: 0.8125rem;
@@ -2738,6 +2750,7 @@ p > video {
 @media screen and (min-width: 44.375em) {
 	body:not(.custom-background-image):before,
 	body:not(.custom-background-image):after {
+		background: none; /*JLR to fix glitch*/
 		background: inherit;
 		content: "";
 		display: block;
