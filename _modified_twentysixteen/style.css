@@ -410,9 +410,21 @@ pre {
 }
 
 code {
-	background-color: #d1d1d1;
+/*	background-color: #d1d1d1;*/ /*JLR*/
 	padding: 0.125em 0.25em;
 }
+
+/* CODE */
+xmp, code, kbd, tt, var, samp, pre { /*JLR*/
+	color: #0d9b6c!important; /*JLR */
+	font-family: Inconsolata, monospace; /*JLR*/
+	font-size: 1em!important; /*JLR*/
+	border-radius:7px;  /*JLR*/
+}
+
+/** Code Blocks **/
+pre      { background-color: #3d342e!important; padding:4px; }/*JLR*/
+pre code { background-color: inherit!important; color: #0d9b6c; }/*JLR*/
 
 abbr,
 acronym {
