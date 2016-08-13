@@ -1,4 +1,4 @@
-# Colorcards WordPress Theme
+# Parchment WordPress Theme
 
-Colorcards is a child theme of Twenty Sixteen with a playful yet professional look emphasizing natural looking depth, colors and textures. It is still a work in progress.  
+Parchment is a child theme of Twenty Sixteen emphasizing natural looking paper-like textures. It is still a work in progress.  
 
