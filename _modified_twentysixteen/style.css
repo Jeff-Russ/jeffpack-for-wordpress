@@ -1581,11 +1581,16 @@ body { /*JLR*/
 
 .site-branding {
 /*	margin: 0.875em auto 0.875em 0;
-*/	margin: 1% 9% 2% 9%;  /*JLR*/
+*/	 /*JLR (override is below) */
 	/* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
 	max-width: 100%;
 	min-width: 0;
 	overflow: hidden;
+}
+
+.site-branding, /*JLR override and */
+.site-footer {  /* coordination with footer */
+	margin: 1% 9% 2% 9%;  
 }
 
 .custom-logo-link {
@@ -4017,3 +4022,6 @@ p > video {
 	}
 }
 
+/*JLR Additions Area Below */
+
+a[href="https://wordpress.org/"] {display: none;}
