@@ -1,0 +1,224 @@
+/*
+Theme Name: Parchment Paper
+Theme URI: https://github.com/Jeff-Russ/ParchmentPaper-wp-theme
+Template: twentysixteen
+Author: Jeffrey Russ
+Author URI: https://github.com/Jeff-Russ/
+Description: https://github.com/Jeff-Russ
+Tags: black,blue,gray,red,white,yellow,dark,light,one-column,two-columns,right-sidebar,fixed-layout,responsive-layout,accessibility-ready,custom-background,custom-colors,custom-header,custom-menu,editor-style,featured-images,flexible-header,microformats,post-formats,rtl-language-support,sticky-post,threaded-comments,translation-ready,parchment,paper,material-design,warm,code
+Version: 0.1.1471132953
+Updated: 2016-08-14 00:02:33
+*/
+
+a[href="https://wordpress.org/"] {display: none;}
+
+
+/****************** COLOR, TEXTURE BORDERS, ETC *******************/
+
+body, button, input, select, textarea /* override line 297 */ 
+{
+	color:#604E39!important; 
+}
+
+.site-branding .site-title a,
+.site-description /* addition */
+{
+	color: #ddd3b6!important; /* override line 1583 */
+}
+
+.site-branding .site-title a:hover,
+.site-branding .site-title a:focus {
+	color: #007acc!important; /* override line 1587 */
+}
+
+.site-description {
+/*	color: #686868;
+*/	/* SOMEHOW CANCEL line 1597 */
+}
+
+/* new rule */
+body {
+	background-color: #493631!important; 
+	
+}
+
+/* override line 1509 */
+.site {
+	background-color: inherit!important;
+	background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png)!important;
+}
+
+/* new rules */
+.site-content {
+	background-color: #ddd3b6!important; 
+	border-radius:10px!important; 
+}
+
+/* CODE */
+xmp, code, kbd, tt, var, samp, pre { /* new css */
+	color: #0d9b6c!important; /* override line 412 and new */
+	border-radius:7px!important;  /* new css*/
+}
+
+/** Code Blocks **/
+pre      { background-color: #3d342e!important; padding:4px; }/* override line 412 + new*/
+pre code { background-color: inherit!important; color: #0d9b6c; }/* override line 412 + new*/
+
+\
+
+/****************** FONTS *******************/
+
+/* CODE */
+xmp, code, kbd, tt, var, samp, pre { /* new css */
+	font-family: Inconsolata, monospace!important; /* new css */
+	font-size: 1em!important; /* new css*/
+}
+
+/* Placeholder text color -- selectors need to be separate to work. */
+::-webkit-input-placeholder { 
+	font-family: 'Mate', serif!important; /* override line 550 (possibly change color later) */ }
+:-moz-placeholder {
+	font-family: 'Mate', serif!important; /* override line 555 (possibly change color later) */}
+::-moz-placeholder {
+	font-family: 'Mate', serif!important; /* override line 560 (possibly change color later) */ }
+:-ms-input-placeholder {
+	font-family: 'Mate', serif!important; /* override line 567 (possibly change color later) */ }
+
+body, button, input, select, textarea, /* override line 297 */ 
+button, button[disabled]:hover, button[disabled]:focus, /* override line 596 */
+input[type="button"], input[type="button"][disabled]:hover, input[type="button"][disabled]:focus, /* override line 596 */
+input[type="reset"], input[type="reset"][disabled]:hover, input[type="reset"][disabled]:focus, /* override line 596 */
+input[type="submit"], input[type="submit"][disabled]:hover, input[type="submit"][disabled]:focus, /* override line 596 */
+.post-password-form label, /* override line 660 (possibly change color later - same with above) */
+.main-navigation, /* override line 784 */
+.post-navigation, /* override line 1038 */
+.pagination, /* override line 1083 */
+.image-navigation, .comment-navigation, /* override line 1222 */
+.site .skip-link,  /* override line 1278 */
+.widget .widget-title, /* override line 1398 */
+.widget_recent_entries .post-date, /* override line 1449 */
+.tagcloud a, /* override line 1490 */
+.site-title, /* override line 1573 */
+.entry-title, /* override line 1674 */
+.entry-footer, /* override line 1959 */
+.sticky-post, /* override line 1995 */
+.page-title, /* override line 2035 */
+.page-links, /* override line 2058 */
+.comments-title, .comment-reply-title, /* override line 2165 */
+.comment-metadata, .pingback .edit-link, /* override line 2221 */
+.comment-reply-link, /* override line 2271 */
+.comment-form label, /* override line 2293 */
+.no-comments, /* override line 2319 */
+.required, /* override line 2340 */
+.site-footer .site-title:after, /*JLR 2411 */
+.widecolumn label, .widecolumn .mu_register label, /* override line 2629 */
+{
+	font-family: 'Mate', serif!important;
+}
+
+
+
+/****************** SIZE AND PLACEMENT *******************/
+
+.site { margin: 1%!important; }/* new css*/
+
+
+.site-header {
+/*	padding: 2.625em 7.6923%;
+*/	/* SOMEHOW CANCEL line 1541 */
+}
+
+.site-branding, /* override line 1557 override and */
+.site-footer {  /* coordination with footer */
+	margin: 1% 9% 2% 9%!important;  
+}
+
+.entry-header  { margin-left: 2%!important; margin-right: 2%!important; }/* override line 1669 */
+.entry-summary { margin-left: 5%!important; margin-right: 5%!important; }/* override line 1669 */
+.entry-content { margin-left: 9%!important; margin-right: 9%!important; }/* override line 1669 */
+.entry-footer  { margin-left: 5%!important; margin-right: 5%!important; }/* override line 1669 */
+.page-content  { margin-left: 2%!important; margin-right: 2%!important; }/* override line 1669 */
+
+
+.sidebar { padding: 0 5%!important; } /* override line 2374 */
+
+
+
+
+/****************** MEDIA QUERIES *******************/
+
+
+/* < 710px - XXS 640w960 iPhone4 */
+
+
+/* 710px - 782px - XS 750w1334 iPhone 6s */
+@media screen and (min-width: 44.375em) {
+
+	body:not(.custom-background-image):before,
+	body:not(.custom-background-image):after {
+		background: none!important; /* override line 2711 to fix glitch*/
+	}
+
+
+	.site { margin: 1%!important; } /* override line 2734 */
+
+	.site-header {
+/*		padding: 3.9375em 7.6923%;
+*/		/* override line 2743 */
+	}
+
+}
+
+/* 783px - 909px - 800w480 Galaxy S */
+@media screen and (min-width: 48.9375em) {
+
+}
+
+/* 910px - 984px (smallest with sidebar) - MD 960w640 iPhone 4 */
+@media screen and (min-width: 56.875em) {
+
+	.site-header {
+/*		padding-right: 4.5455%;
+		padding-left: 4.5455%;
+*/	/* SOMEHOW CANCEL line 2943 */
+	}
+
+	.site-branding { 
+		margin-left: 9%!important; /* new, from: 4.5% + 4.5% */
+	}
+
+
+	.site-content {
+		padding: 3.5%!important; /* override line 3086 */
+		margin: 0 4.5%!important; /* added */
+	}
+}
+
+/* 985px - 1199px - LG 1024w768 iPad mini */
+@media screen and (min-width: 61.5625em) {
+
+	.site-header {
+/*		padding: 5.25em 4.5455%;
+*/	/* SOMEHOW CANCEL line 3379 */
+	}
+}
+
+/* 1200px+ - XL 1280w800 MBP */
+@media screen and (min-width: 75em) {
+
+
+}
+
+
+/****************** PRINT *******************/
+
+@media print {
+
+	.site-header {
+/*		padding: 0 0 1.75em;
+*/	/* SOMEHOW CANCEL line 3908 */
+	}
+
+}
+
+ 

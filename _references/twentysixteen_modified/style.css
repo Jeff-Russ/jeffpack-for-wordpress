@@ -295,7 +295,7 @@ select,
 textarea {
 /*	color: #1a1a1a;
 	font-family: Merriweather, Georgia, serif;*/
-	font-family: 'Mate', serif; color:#604E39; /*JLR*/
+	font-family: 'Mate', serif; color:#604E39; /*JLR line297 */
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.75;
@@ -410,21 +410,21 @@ pre {
 }
 
 code {
-/*	background-color: #d1d1d1;*/ /*JLR*/
+/*	background-color: #d1d1d1;*/ /*JLR line412 */
 	padding: 0.125em 0.25em;
 }
 
 /* CODE */
-xmp, code, kbd, tt, var, samp, pre { /*JLR*/
-	color: #0d9b6c!important; /*JLR */
-	font-family: Inconsolata, monospace; /*JLR*/
-	font-size: 1em!important; /*JLR*/
-	border-radius:7px;  /*JLR*/
+xmp, code, kbd, tt, var, samp, pre { /*JLR new*/
+	color: #0d9b6c!important; /*JLR new*/
+	font-family: Inconsolata, monospace; /*JLR new*/
+	font-size: 1em!important; /*JLR new*/
+	border-radius:7px;  /*JLR new*/
 }
 
 /** Code Blocks **/
-pre      { background-color: #3d342e!important; padding:4px; }/*JLR*/
-pre code { background-color: inherit!important; color: #0d9b6c; }/*JLR*/
+pre      { background-color: #3d342e!important; padding:4px; }/*JLR line412 + new*/
+pre code { background-color: inherit!important; color: #0d9b6c; }/*JLR line412 + new*/
 
 abbr,
 acronym {
@@ -469,7 +469,7 @@ body {
 	/* Fallback for when there is no custom background color defined. */
 }
 
-.site { margin: 1%; }/*JLR*/
+.site { margin: 1%; }/*JLR new*/
 
 hr {
 	background-color: #d1d1d1;
@@ -563,18 +563,18 @@ td {
 ::-webkit-input-placeholder {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line550 */
 }
 
 :-moz-placeholder {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/}
+*/	font-family: 'Mate', serif; /*JLR line555 */}
 
 ::-moz-placeholder {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line560 */
 	opacity: 1;
 	/* Since FF19 lowers the opacity of the placeholder by default */
 }
@@ -582,7 +582,7 @@ td {
 :-ms-input-placeholder {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line567 */
 }
 
 
@@ -611,7 +611,7 @@ input[type="submit"][disabled]:focus {
 	border-radius: 2px;
 	color: #fff;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line596 */
 	font-weight: 700;
 	letter-spacing: 0.046875em;
 	line-height: 1;
@@ -677,7 +677,7 @@ textarea:focus {
 	color: #686868;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line660 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	letter-spacing: 0.076923077em;
@@ -802,7 +802,7 @@ a:active {
 
 .main-navigation {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line784 */
 }
 
 .site-footer .main-navigation {
@@ -1057,7 +1057,7 @@ a:active {
 	border-bottom: 4px solid #1a1a1a;
 	clear: both;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1038 */
 	margin: 0 7.6923% 3.5em;
 }
 
@@ -1084,7 +1084,7 @@ a:active {
 .post-navigation .post-title {
 	display: inline;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1064 */
 	font-size: 23px;
 	font-size: 1.4375rem;
 	font-weight: 700;
@@ -1104,7 +1104,7 @@ a:active {
 .pagination {
 	border-top: 4px solid #1a1a1a;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1083 */
 	font-size: 19px;
 	font-size: 1.1875rem;
 	margin: 0 7.6923% 2.947368421em;
@@ -1244,7 +1244,7 @@ a:active {
 	border-bottom: 1px solid #d1d1d1;
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1222 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1.6153846154;
@@ -1301,7 +1301,7 @@ a:active {
 	color: #21759b;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1278 */
 	font-size: 14px;
 	font-weight: 700;
 	left: -9999em;
@@ -1422,7 +1422,7 @@ blockquote:after,
 
 .widget .widget-title {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1398 */
 	font-size: 16px;
 	font-size: 1rem;
 	letter-spacing: 0.046875em;
@@ -1474,7 +1474,7 @@ blockquote:after,
 	color: #686868;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1449 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1.615384615;
@@ -1495,7 +1495,7 @@ blockquote:after,
 	color: #686868;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1469 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	font-style: normal;
@@ -1517,7 +1517,7 @@ blockquote:after,
 	border-radius: 2px;
 	display: inline-block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1490 */
 	line-height: 1;
 	margin: 0 0.1875em 0.4375em 0;
 	padding: 0.5625em 0.4375em 0.5em;
@@ -1535,13 +1535,14 @@ blockquote:after,
  * 11.0 - Content
  */
 
-body { /*JLR*/
-	background-color: #493631; /*JLR*/
-	background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png);/*JLR*/
+body { /*JLR new */
+	background-color: #493631; /*JLR new */
+	background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png);/*JLR new */
 }
 
 .site {
-	background-color: none;/*JLR*/
+/*	background-color: #fff;
+*/	background-color: none;/*JLR line1509 */
 }
 
 .site-inner {
@@ -1552,8 +1553,8 @@ body { /*JLR*/
 
 .site-content {
 	word-wrap: break-word;
-	background-color: #ddd3b6; /*JLR*/
-	border-radius:10px; /*JLR*/
+	background-color: #ddd3b6; /*JLR new */
+	border-radius:10px; /*JLR new */
 }
 
 /* Do not show the outline on the skip link target. */
@@ -1576,7 +1577,7 @@ body { /*JLR*/
 
 .site-header {
 /*	padding: 2.625em 7.6923%;
-*/	/*JLR*/
+*/	/*JLR line1541 */
 }
 
 .site-header-main {
@@ -1593,14 +1594,14 @@ body { /*JLR*/
 
 .site-branding {
 /*	margin: 0.875em auto 0.875em 0;
-*/	 /*JLR (override is below) */
+*/	 /*JLR line1557 (override is below) */
 	/* Avoid overflowing wide custom logo in small screens in Firefox and IEs */
 	max-width: 100%;
 	min-width: 0;
 	overflow: hidden;
 }
 
-.site-branding, /*JLR override and */
+.site-branding, /*JLR line1557 override and */
 .site-footer {  /* coordination with footer */
 	margin: 1% 9% 2% 9%;  
 }
@@ -1615,7 +1616,7 @@ body { /*JLR*/
 
 .site-title {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1573 */
 	font-size: 23px;
 	font-size: 1.4375rem;
 	font-weight: 700;
@@ -1624,16 +1625,16 @@ body { /*JLR*/
 }
 
 .site-branding .site-title a,
-.site-description /*JLR*/
+.site-description /*JLR add */
 {
 /*	color: #1a1a1a;
-*/	color: #ddd3b6; /*JLR*/
+*/	color: #ddd3b6; /*JLR line1583 */
 }
 
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus {
 /*	color: #007acc;
-*/	color: #007acc; /*JLR*/
+*/	color: #007acc; /*JLR line1587 */
 }
 
 .wp-custom-logo .site-title {
@@ -1642,7 +1643,7 @@ body { /*JLR*/
 
 .site-description {
 /*	color: #686868;
-*/	/*JLR*/
+*/	/*JLR line1597 */
 	display: none;
 	font-size: 13px;
 	font-size: 0.8125rem;
@@ -1718,18 +1719,18 @@ body { /*JLR*/
 .page-content {
 /*	margin-right: 7.6923%;
 	margin-left: 7.6923%;
-*/ /*JLR: replace with below*/
+*/ /*JLR: line1669 replace with below*/
 }
 
-.entry-header  { margin-left: 2%; margin-right: 2%; }
-.entry-summary { margin-left: 5%; margin-right: 5%; }
-.entry-content { margin-left: 9%; margin-right: 9%; }
-.entry-footer  { margin-left: 5%; margin-right: 5%; }
-.page-content  { margin-left: 2%; margin-right: 2%; }
+.entry-header  { margin-left: 2%; margin-right: 2%; }/*JLR new */
+.entry-summary { margin-left: 5%; margin-right: 5%; }/*JLR new */
+.entry-content { margin-left: 9%; margin-right: 9%; }/*JLR new */
+.entry-footer  { margin-left: 5%; margin-right: 5%; }/*JLR new */
+.page-content  { margin-left: 2%; margin-right: 2%; }/*JLR new */
 
 .entry-title {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1674 */
 	font-size: 28px;
 	font-size: 1.75rem;
 	font-weight: 700;
@@ -2015,7 +2016,7 @@ body:not(.search-results) .entry-summary > :last-child,
 .entry-footer {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1959 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1.6153846154;
@@ -2052,7 +2053,7 @@ body:not(.search-results) .entry-summary > :last-child,
 	color: #686868;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line1995 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	letter-spacing: 0.076923077em;
@@ -2093,7 +2094,7 @@ body.search-no-results .page-header {
 
 .page-title {
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2035 */
 	font-size: 23px;
 	font-size: 1.4375rem;
 	line-height: 1.2173913043;
@@ -2117,7 +2118,7 @@ body.search-no-results .page-header {
 .page-links {
 	clear: both;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2058 */
 	margin: 0 0 1.75em;
 }
 
@@ -2225,7 +2226,7 @@ body.search-no-results .page-header {
 .comment-reply-title {
 	border-top: 4px solid #1a1a1a;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2165 */
 	font-size: 23px;
 	font-size: 1.4375rem;
 	font-weight: 700;
@@ -2282,7 +2283,7 @@ body.search-no-results .page-header {
 .pingback .edit-link {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2221 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1.6153846154;
@@ -2333,7 +2334,7 @@ body.search-no-results .page-header {
 	color: #007acc;
 	display: inline-block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2271 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1;
@@ -2356,7 +2357,7 @@ body.search-no-results .page-header {
 	color: #686868;
 	display: block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2293 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	letter-spacing: 0.076923077em;
@@ -2383,7 +2384,7 @@ body.search-no-results .page-header {
 .no-comments {
 	border-top: 1px solid #d1d1d1;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2319 */
 	font-weight: 700;
 	margin: 0;
 	padding-top: 1.75em;
@@ -2405,7 +2406,7 @@ body.search-no-results .page-header {
 .required {
 	color: #007acc;
 /*	font-family: Merriweather, Georgia, serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2340 */
 }
 
 .comment-reply-title small {
@@ -2440,7 +2441,7 @@ body.search-no-results .page-header {
 .sidebar {
 	margin-bottom: 3.5em;
 /*	padding: 0 7.6923%;
-*/	padding: 0 5%; /*JLR*/
+*/	padding: 0 5%; /*JLR line2374 */
 }
 
 
@@ -2478,7 +2479,7 @@ body.search-no-results .page-header {
 	content: "\002f";
 	display: inline-block;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR 2411 */
 	opacity: 0.7;
 	padding: 0 0.307692308em 0 0.538461538em;
 }
@@ -2697,7 +2698,7 @@ p > video {
 .widecolumn .mu_register label {
 	color: #686868;
 /*	font-family: Montserrat, "Helvetica Neue", sans-serif;
-*/	font-family: 'Mate', serif; /*JLR*/
+*/	font-family: 'Mate', serif; /*JLR line2629 */
 	font-size: 13px;
 	font-size: 0.8125rem;
 	font-weight: 400;
@@ -2779,7 +2780,7 @@ p > video {
 @media screen and (min-width: 44.375em) {
 	body:not(.custom-background-image):before,
 	body:not(.custom-background-image):after {
-		background: none; /*JLR to fix glitch*/
+		background: none; /*JLR line2711 to fix glitch*/
 		content: "";
 		display: block;
 		height: 21px;
@@ -2803,7 +2804,7 @@ p > video {
 
 	.site {
 /*		margin: 21px;
-*/		margin: 1%; /*JLR*/
+*/		margin: 1%; /*JLR line2734 */
 	}
 
 	.site-main {
@@ -2812,7 +2813,7 @@ p > video {
 
 	.site-header {
 /*		padding: 3.9375em 7.6923%;
-*/		/*JLR*/
+*/		/*JLR line2743 */
 	}
 
 	.site-branding {
@@ -3015,10 +3016,10 @@ p > video {
 	.site-header {
 /*		padding-right: 4.5455%;
 		padding-left: 4.5455%;
-*/	/*JLR*/
+*/	/*JLR line2943 */
 	}
 
-	.site-branding {
+	.site-branding { /*JLR added */
 		margin-left: 9%; /*JLR: 4.5% + 4.5% */
 	}
 
@@ -3162,8 +3163,8 @@ p > video {
 
 	.site-content {
 /*		padding: 0 4.5455%;
-*/		padding: 3.5%; /*JLR*/
-		margin: 0 4.5%; /*JLR*/
+*/		padding: 3.5%; /*JLR line3086 */
+		margin: 0 4.5%; /*JLR added */
 	}
 
 	.content-area {
@@ -3457,7 +3458,7 @@ p > video {
 
 	.site-header {
 /*		padding: 5.25em 4.5455%;
-*/	/*JLR*/
+*/	/*JLR line3379 */
 	}
 
 	.site-branding,
@@ -3987,7 +3988,7 @@ p > video {
 
 	.site-header {
 /*		padding: 0 0 1.75em;
-*/	/*JLR*/
+*/	/*JLR line3908 */
 	}
 
 	.site-branding {
