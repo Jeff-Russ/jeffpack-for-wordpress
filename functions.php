@@ -20,3 +20,4 @@ endif;
 add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css' );
 
 // END ENQUEUE PARENT ACTION
+?>
