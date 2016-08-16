@@ -16,7 +16,7 @@ html {
 }
 body {
     background-color: #493631;
-    background-image: url(/wp-content/themes/parchmentpaper/images/skulls.png);
+    background-image: url(/wp-content/themes/parchmentpaper/images/pattern/skulls.png);
 }
 a {
     color: #076077 !important;
@@ -200,7 +200,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 .site-content {
     background-color: #ddd3b6 !important;
     padding-top: 1em !important;
-    background-image: url(/wp-content/themes/parchmentpaper/images/paper-1.png) !important;
+    background-image: url(/wp-content/themes/parchmentpaper/images/paper/otis-redding.png) !important;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
     -o-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
@@ -370,15 +370,78 @@ a {
 }
 }
 
-.panel-heading .accordion-toggle:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
-}
-.panel-heading .accordion-toggle.collapsed:after {
-    /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+/* cancel underline from twenty sixteen */
+.entry-content a{ box-shadow: none!important; }
+
+.entry-content h4, .entry-summary h4, .comment-content h4, .textwidget h4 {
+    letter-spacing: normal!important; /* cancel wide spacing from twenty sixteen */
+    text-transform: none;  /* cancel upcase from twenty sixteen */
+    margin-bottom: 0; /* cancel huge margin from twenty sixteen */
 }
 
+a:focus { outline: none; } /* cancel dotted box from twenty sixteen */
+
+.panel { border: none !important; box-shadow: 0 0px 10px rgba(0,0,0,0.40); }
+
+.panel-default > .panel-collapse > .panel-body, 
+.panel-default > .panel-collapse{ border: 1px solid #c7c6ad!important; }
+.panel-default > .panel-heading { background-color: #c7c6ad;
+    box-shadow: inset 0px 5px 10px 0px #cac1a0; 
+}
+.panel-primary > .panel-collapse > .panel-body, 
+.panel-primary > .panel-collapse{ border: 1px solid #8dc3b0!important; }
+.panel-primary > .panel-heading { background-color: #8dc3b0;
+    box-shadow: inset 0px 5px 10px 0px #9dbea0; 
+}
+.panel-success > .panel-collapse > .panel-body, 
+.panel-success > .panel-collapse{ border: 1px solid #7eae86!important; }
+.panel-success > .panel-heading { background-color: #7eae86;
+    box-shadow: inset 0px 5px 6px 0px #93b479; 
+}
+.panel-info > .panel-collapse > .panel-body, 
+.panel-info > .panel-collapse{ border: 1px solid #69c1c9!important; }
+.panel-info > .panel-heading { background-color: #69c1c9;
+    box-shadow: inset 0px 5px 10px 0px #9dbea0; 
+}
+.panel-warning > .panel-collapse > .panel-body, 
+.panel-warning > .panel-collapse{ border: 1px solid #bda228!important; }
+.panel-warning > .panel-heading { background-color: #bda228;
+    box-shadow: inset 0px 5px 10px 0px #d0b771; 
+}
+.panel-danger > .panel-collapse > .panel-body, 
+.panel-danger > .panel-collapse{ border: 1px solid #bf6d63!important; }
+.panel-danger > .panel-heading { background-color: #bf6d63;
+    box-shadow: inset 0px 5px 10px 0px #c49578; 
+}
+.panel-link > .panel-collapse > .panel-body, 
+.panel-link > .panel-collapse{ border: 1px solid #c6d7d4!important; }
+.panel-link > .panel-heading { background-color: #c6d7d4;
+    box-shadow: inset 0px 5px 5px 0px #c7d6d0; 
+}
+
+
+.panel-default > .panel-heading, 
+.panel-primary > .panel-heading, 
+.panel-info > .panel-heading, 
+.panel-warning > .panel-heading {
+    background-image: url(/wp-content/themes/parchmentpaper/images/paper/paper-1.png) !important;
+}
+.panel-success > .panel-heading, 
+.panel-danger > .panel-heading, 
+.panel-link > .panel-heading {
+    background-image: url(/wp-content/themes/parchmentpaper/images/paper/otis-redding.png) !important;
+}
+.panel-collapse, .panel-collapse > .panel-body { 
+    -moz-border-radius: 0px 0px 4px 4px !important;
+    -webkit-border-radius: 0px 0px 4px 4px !important;
+    -o-border-radius: 0px 0px 4px 4px !important;
+    border-radius: 0px 0px 4px 4px !important;
+}
+.panel > .panel-collapse { border-top: none!important; }/* MUST be after .panel-default > .panel-collapse border*/
+.panel-body {
+    background-color: #ddd6c0 !important;
+    background-image: url(/wp-content/themes/parchmentpaper/images/paper/otis-redding.png) !important;
+}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: none;
+}
