@@ -1,7 +1,7 @@
 <?php
 /*
- * Plugin Name: Colorcards Styler Plugin
- * Plugin URI: http://github.com/Jeff-Russ/
+ * Plugin Name: Colorcards Shortcodes Plugin
+ * Plugin URI: http://github.com/Jeff-Russ/cc-shortcodes-wp-plugin
  * Description: Beautify long post/page content and add ease of navigation with Colorcards Shortcodes!
  * Version: 0.1
  * Author: Jeff Russ
@@ -11,7 +11,7 @@
 
 // Variables ////
 
-$this_plugin_path = strstr(__DIR__, '/wp-content');
+// $this_plugin_path = strstr(__DIR__, '/wp-content');
 
 
 // HOOKS //////
@@ -33,24 +33,23 @@ if ( !function_exists('enqueue_jquery_cdn') ){
 	}
 }
 
-wp_enqueue_script(
-	'colorcards_shortcodes_js',               //slug
-	$this_plugin_path . '/colorcards.min.js', //path
-	array('jquery'),                          //dependencies
-	false,                                    //version
-	true                                      //footer
-);
+// Add CSS
+add_action('wp_enqueue_scripts', 'enqueue_colorcards_shortcodes_js');
+function enqueue_colorcards_shortcodes_js() {
+	wp_enqueue_script( 'colorcards_shortcodes_js',
+		plugins_url('/colorcards-shortcodes.min.js', __FILE__),
+		array('jquery'), // dependencies
+		false,           // version
+		true             // footer
+	);
+}
 
-// add_action( 'wp_enqueue_scripts', 'add_local_js_to_footer', 100 );
-// function add_local_js_to_footer() {
-// 	$path = strstr(__DIR__, '/wp-content');
-// 	echo "<script src='${path}/colorcards.min.js'></script>";
-// }
-
-add_action( 'wp_head','add_local_css_to_head' );
-function add_local_css_to_head() {
-	$path = strstr(__DIR__, '/wp-content');
-	echo "</p><link rel='stylesheet' type='text/css' href='${path}/colorcards.min.css'></p>";
+// Add JS
+add_action('wp_enqueue_scripts', 'enqueue_colorcards_shortcodes_css');
+function enqueue_colorcards_shortcodes_css() {
+	wp_enqueue_style('colorcards_shortcodes_css',
+		plugins_url('/colorcards-shortcodes.min.css', __FILE__)
+	);
 }
 
 // RE-USABLE FUNCTIONS //////
@@ -70,7 +69,6 @@ function toAscii($str, $replace=array(), $delimiter='-') {
 }
 
 // SHORTCODES //////
-
 
 add_shortcode('collapsible', 'collapsible_cb');
 function collapsible_cb($atts, $content) {

@@ -1,10 +1,10 @@
 /*
 Theme Name: Parchment Paper
-Theme URI: https://github.com/Jeff-Russ/ParchmentPaper-wp-theme
+Theme URI: https://github.com/Jeff-Russ/Colorcards/cc-parchmentpaper-wp-theme
 Template: twentysixteen
 Author: Jeff Russ
 Author URI: https://github.com/Jeff-Russ/
-Description: Parchment Paper is a child theme of Twenty Sixteen that uses captures the feel of naturally aged paper. Textures and shadows are everywhere but are so subtle they are nearly subliminal.
+Description: Colorcards Parchment Paper is a child theme of Twenty Sixteen that uses captures the feel of naturally aged paper. Textures and shadows are everywhere but are so subtle they are nearly subliminal.
 Tags: black,blue,gray,red,white,yellow,dark,light,one-column,two-columns,right-sidebar,fixed-layout,responsive-layout,accessibility-ready,custom-background,custom-colors,custom-header,custom-menu,editor-style,featured-images,flexible-header,microformats,post-formats,rtl-language-support,sticky-post,threaded-comments,translation-ready,material-design,paper,texture,dark
 Version: 0.2.1471235634
 Updated: 2016-08-15 04:33:54
@@ -16,7 +16,7 @@ html {
 }
 body {
     background-color: #493631;
-    background-image: url(/wp-content/themes/parchmentpaper/images/pattern/skulls.png);
+    background-image: url(/wp-content/themes/cc-parchmentpaper-wp-theme/images/pattern/skulls.png);
 }
 a {
     color: #076077 !important;
@@ -200,7 +200,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 .site-content {
     background-color: #ddd3b6 !important;
     padding-top: 1em !important;
-    background-image: url(/wp-content/themes/parchmentpaper/images/paper/otis-redding.png) !important;
+    background-image: url(/wp-content/themes/cc-parchmentpaper-wp-theme/images/paper/otis-redding.png) !important;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
     -o-box-shadow: 0 0 10px rgba(0,0,0,0.40), inset 0 0 8px 8px #dfd0b0 !important;
