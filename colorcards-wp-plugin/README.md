@@ -2,9 +2,9 @@
 
 Beautify long post/page content and add ease of navigation with Colorcards Shortcodes  
 
-![current cycle: development](https://s3.amazonaws.com/cdn.shared/git-status-badges/current%20cycle-development-yellow.svg)  
+![current cycle: development](https://s3.amazonaws.com/cdn.shared/git-status-badges/current_cycle-development-yellow.svg)  
 
-![deployable: no](https://s3.amazonaws.com/cdn.shared/git-status-badges/deployable--no-red.svg)  
+![deployable: no](https://s3.amazonaws.com/cdn.shared/git-status-badges/deployable-no-red.svg)  
 
 Colorcards is a plugin for WordPress that provides Shortcodes used to style posts and pages. The styles are designed to work well with the Parchment Paper theme and are geared toward making extremely long content more readable and less off-putting. This is mainly done by partitioning sections into a collapsible accordion.  
 
