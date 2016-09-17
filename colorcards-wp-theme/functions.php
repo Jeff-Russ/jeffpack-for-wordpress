@@ -40,7 +40,7 @@ if ( !function_exists('enqueue_bootstrap_js_edit') ){
 // Add Bootstrap CSS
 if ( !function_exists('enqueue_bootstrap_css_edit') ){
   // toggle local edit option via comment/uncomment!
-  add_action('wp_enqueue_style', 'enqueue_bootstrap_css_edit');
+  add_action('wp_enqueue_scripts', 'enqueue_bootstrap_css_edit');
   function enqueue_bootstrap_css_edit(){
     wp_enqueue_style('bs-css', get_stylesheet_directory_uri()
       . '/bootstraplet.css');
@@ -48,7 +48,7 @@ if ( !function_exists('enqueue_bootstrap_css_edit') ){
 }
 if ( !function_exists('enqueue_bootstrap_css_cdn') ){
   // toggle cdn option via comment/uncomment! 
-  add_action('wp_enqueue_style', 'enqueue_bootstrap_css_cdn');
+  add_action('wp_enqueue_scripts', 'enqueue_bootstrap_css_cdn');
   function enqueue_bootstrap_css_cdn(){
     wp_enqueue_style('bs-css',
       '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' );
@@ -73,4 +73,4 @@ endif;
 add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css' );
 
 // END ENQUEUE PARENT ACTION
-?>
+?>w
