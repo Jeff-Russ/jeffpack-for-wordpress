@@ -9,42 +9,12 @@
  * License: GPL2
  */
 
+// Variables ////
+
+$this_plugin_path = strstr(__DIR__, '/wp-content');
+
+
 // HOOKS //////
-
-add_action( 'wp_footer', 'add_local_js_to_footer', 100 );
-function add_local_js_to_footer() {
-	$path = strstr(__DIR__, '/wp-content');
-	echo "<script src='${path}/colorcards.min.js'></script>";
-}
-
-add_action( 'wp_head','add_local_css_to_head' );
-function add_local_css_to_head() {
-	$path = strstr(__DIR__, '/wp-content');
-	echo "</p><link rel='stylesheet' type='text/css' href='${path}/colorcards.min.css'></p>";
-}
-
-// RE-USABLE FUNCTIONS //////
-
-function replace_dashes($string) {
-		$string = str_replace("-", " ", $string);
-		
-		return $string;
-}
-// shout out: http://cubiq.org/the-perfect-php-clean-url-generator
-setlocale(LC_ALL, 'en_US.UTF8');
-function toAscii($str, $replace=array(), $delimiter='-') {
-	if( !empty($replace) ) {
-		$str = str_replace((array)$replace, ' ', $str);
-	}
-	$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
-	$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
-	$clean = strtolower(trim($clean, '-'));
-	$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
-
-	return $clean;
-}
-
-// SHORTCODES //////
 
 // Add jQuery
 if ( !function_exists('enqueue_jquery_cdn') ){
@@ -63,6 +33,43 @@ if ( !function_exists('enqueue_jquery_cdn') ){
 	}
 }
 
+wp_enqueue_script(
+	'colorcards_shortcodes_js',               //slug
+	$this_plugin_path . '/colorcards.min.js', //path
+	array('jquery'),                          //dependencies
+	false,                                    //version
+	true                                      //footer
+);
+
+// add_action( 'wp_enqueue_scripts', 'add_local_js_to_footer', 100 );
+// function add_local_js_to_footer() {
+// 	$path = strstr(__DIR__, '/wp-content');
+// 	echo "<script src='${path}/colorcards.min.js'></script>";
+// }
+
+add_action( 'wp_head','add_local_css_to_head' );
+function add_local_css_to_head() {
+	$path = strstr(__DIR__, '/wp-content');
+	echo "</p><link rel='stylesheet' type='text/css' href='${path}/colorcards.min.css'></p>";
+}
+
+// RE-USABLE FUNCTIONS //////
+
+// shout out to http://cubiq.org/the-perfect-php-clean-url-generator
+setlocale(LC_ALL, 'en_US.UTF8');
+function toAscii($str, $replace=array(), $delimiter='-') {
+	if( !empty($replace) ) {
+		$str = str_replace((array)$replace, ' ', $str);
+	}
+	$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+	$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+	$clean = strtolower(trim($clean, '-'));
+	$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+	return $clean;
+}
+
+// SHORTCODES //////
 
 
 add_shortcode('collapsible', 'collapsible_cb');
