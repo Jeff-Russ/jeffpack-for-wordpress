@@ -86,10 +86,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
     font-family: Mate !important;
 }
 .main-navigation a {
-    color: #004557 !important;
+    color: #ddd3b6 !important; /* changed to match other text over brown */
 }
 .main-navigation a:hover, .main-navigation a:focus {
-    color: #4c85aa !important;
+    color: #4c85aa !important; 
+}
+#menu-primary-menu {
+    border-bottom-color: #ddd3b6!important; /* changed to match other text over brown */
 }
 .main-navigation .primary-menu {
     border-bottom: 1px solid #4d5a68 !important;
