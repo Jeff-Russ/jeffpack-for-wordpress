@@ -11,6 +11,16 @@ Updated: 2016-08-15 04:33:54
 
 */
 
+/*shamefully hosted by wordpress */
+a[href="https://wordpress.org/"] {
+    visibility: hidden!important; 
+    opacity: 0!important;
+    pointer-events: none;
+    cursor: default;
+    position: absolute!important;
+    width:0px!important;
+}
+
 html {
     font-family: Mate !important;
 }
