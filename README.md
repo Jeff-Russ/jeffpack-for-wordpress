@@ -8,9 +8,11 @@ Jeffpack for WordPress is a undeniably self-serving project but perhaps you'll f
 
 The Jeffpack code is a WordPress Plugin / Theme pair for styling your WordPress sites and individual posts via Shortcodes. The plugin contains much of the functional part of CSS and JavaScript whereas the Theme fills in more visual details capturing the feel of naturally aged paper. Textures and shadows are everywhere but are so subtle they are nearly subliminal.  
 
+The `.gitignore` is more like a "git DON'T ignore" in that it whitelists (first with `*` then `!whatever`) the code being added and doesn't touch anything in WordPress else unless you do something new in `.gitignore`. Also it's all been specified in `.git/info/exclude` instead of `.gitignore` but you can add more rules by creating a `.gitignore`.  
+
 ## Installation 
 
-The `.gitignore` is more like a "git DON'T ignore" in that it whitelists the code being added and doesn't touch anything in WordPress else unless you change the `.gitignore`. Just `cd` to the root of the WordPress site and checkout various branches in without touching the WordPress Core code like this:  
+To get started with installation just `cd` to the root of the WordPress site and checkout various branches in without touching the WordPress Core code like this:  
 
      $ ssh MY_USERNAME@MYSITE.COM
      password: ********
@@ -47,6 +49,12 @@ Whatever you commit and push to the repository can then be available to the from
 ## Backing Up Your Site
 
 You might actually choose to whitelist more of the files that come with WordPress as a means of backing them up but I would recommend not having a public repo at that point. Also, you repo looses the ability to be reused for other sites this way and, if certain files that reference the host domain are tracked, you can render your site stuck on that host.  
+
+There is a solution that solve both problems. Whenever you run `git` it assumes you are using the setting in `.git` of your directory but you can use another name. This way you can have to git tracking of the same content! Here you can start a new one that tracks everything:  
+
+    ~$ git .git-for-backup init
+
+Now whatever you run starting with `git .git-for-backup` actually applies to this other git project. You could even make Bash command `git-backup` that is an alias for `git .git-for-backup`. Remember that the whitelisting was specified in `.git/info/exclude` so we are clear in this new `.git-backup` to have a fresh set of rules, although if you have a `.gitignore` it will be used by both. At this point you can commit everything to `.git-backup` and push it somewhere else, then go back to typing `git` normally as if the other git isn't even there!  
 
 ## Future Plans
 
