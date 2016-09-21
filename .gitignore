@@ -3,27 +3,28 @@
 # Which can be placed in .gitignore or .git/info/exclude        #
 #...............................................................#
 
+#________________________________________________________________
+# Ignore WordPress things
 
-#_______________________________________________________________
-# FIRST: Ignore everything first with * wildcard 
-
-*
+wp-includes/**
+wp-admin/**
+/wp-*.*
+/xmlrpc.php
+/error_log
+/.htaccess
+/index.php
+/licence.txt
+/readme.html
 
 #________________________________________________________________
-# SECOND: Whitelist whatever you want NOT ignored with ! operator
+# In-ignore some things
 
 !.gitignore
-!README.md
 
-!jeffpack-non-executing/*
-
-!wp-content/themes/cc-parchmentpaper-wp-theme
-!wp-content/plugins/cc-shortcodes-wp-plugin
 
 #________________________________________________________________
-# LAST: Ignore things possibly found in whitelisted directories
+# Ignore MacOS specific things
 
-# some MacOS specific ignores
 .DS_Store
 Desktop.ini
 ._*
@@ -31,7 +32,8 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# some other common things that should to be ignored:
+#________________________________________________________________
+# some other common things that should to be ignored
 *.pyc
 *.out
 venv
