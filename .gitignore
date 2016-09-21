@@ -15,10 +15,7 @@
 !.gitignore
 !README.md
 
-!sources_and_tests/colorcards-shortcodes-test.css
-!sources_and_tests/colorcards-shortcodes.js
-!sources_and_tests/colorcards-shortcodes.scss
-!sources_and_tests/shortcodes-test.html
+!jeffpack-non-executing/
 
 !wp-content/themes/cc-parchmentpaper-wp-theme
 !wp-content/plugins/cc-shortcodes-wp-plugin
