@@ -1,7 +1,17 @@
-# ignore EVERYTHING first:
+#...............................................................#
+# A whitelisting method of filtering git tracking by Jeff-Russ  #
+# Which can be placed in .gitignore or .git/info/exclude        #
+#...............................................................#
+
+
+#_______________________________________________________________
+# FIRST: Ignore everything first with * wildcard 
+
 *
 
-# now list everything you want to whitelist (not ignore) here:
+#________________________________________________________________
+# SECOND: Whitelist whatever you want NOT ignored with ! operator
+
 !.gitignore
 !README.md
 
@@ -12,3 +22,21 @@
 
 !wp-content/themes/cc-parchmentpaper-wp-theme
 !wp-content/plugins/cc-shortcodes-wp-plugin
+
+#________________________________________________________________
+# LAST: Ignore things possibly found in whitelisted directories
+
+# some MacOS specific ignores
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# some other common things that should to be ignored:
+*.pyc
+*.out
+venv
+node_modules
+.sass-cache
