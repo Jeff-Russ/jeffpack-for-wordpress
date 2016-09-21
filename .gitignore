@@ -15,7 +15,7 @@
 !.gitignore
 !README.md
 
-!jeffpack-non-executing/
+!jeffpack-non-executing/*
 
 !wp-content/themes/cc-parchmentpaper-wp-theme
 !wp-content/plugins/cc-shortcodes-wp-plugin
