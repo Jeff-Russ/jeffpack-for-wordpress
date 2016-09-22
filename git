@@ -1,0 +1,7 @@
+#!/bin/sh
+# git should be in root of WordPress and calls:
+# wp-content/plugins/jeffpack-multi-git/git-jeffpack-only.sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+"$DIR/wp-content/plugins/jeffpack-git/git-jeffpack-only.sh" "$@"

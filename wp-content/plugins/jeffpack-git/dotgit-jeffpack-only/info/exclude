@@ -1,0 +1,72 @@
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+
+#...............................................................#
+# A whitelisting method of filtering git tracking by Jeff-Russ  #
+# Which can be placed in .gitignore or .git/info/exclude        #
+#...............................................................#
+
+
+#################################################################
+# Blacklist (Ignores)
+
+# Ignore everything directly at / (non-resursive)
+/*
+
+# Ignore MacOS specific things: 
+
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# some other common things that should to be ignored
+*.pyc
+*.out
+venv
+node_modules
+.sass-cache
+
+
+#################################################################
+# Whitelist specific things (must be after Blacklist)
+# only the one at / for files
+!/README.md 
+!/.gitignore 
+!/gitignore 
+!/git
+!/git-backup
+!/git-move
+# this is actually recursive:
+!/jeffpack-non-executing 
+
+# Whitelisting things that start at / it not to hard but to 
+# whitelist something further in can be a bit tricky. 
+# To whitelist some plugin and themes but not all of wp-content
+# I took this advice Ryan Taylor's advice here: 
+# http://stackoverflow.com/questions/987142/
+
+# Preparation for whitelisting in wp-content:
+!wp-content/
+wp-content/*
+
+# Preparation for whitelisting in wp-content/themes:
+!wp-content/themes/
+wp-content/themes/*
+
+# now list each theme (after !wp-content/themes/)
+!wp-content/themes/jeffpack-parchmentpaper/
+
+# Preparation for whitelisting in wp-content/plugins:
+!wp-content/plugins/
+wp-content/plugins/*
+
+# now list each plugin (after !wp-content/plugin/)
+!wp-content/plugins/jeffpack-shortcodes/
+!wp-content/plugins/jeffpack-git/

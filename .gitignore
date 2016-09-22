@@ -1,0 +1,16 @@
+# UNIVERSAL ignores for non-essential files
+
+# Ignore MacOS specific things: 
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# some other common things that should to be ignored
+*.pyc
+*.out
+venv
+node_modules
+.sass-cache
