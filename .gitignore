@@ -3,10 +3,12 @@
 # Which can be placed in .gitignore or .git/info/exclude        #
 #...............................................................#
 
+
 #################################################################
 # Blacklist (Ignores)
 
-/*   # Ignore everything directly at / (non-resursive)
+# Ignore everything directly at / (non-resursive)
+/*
 
 # Ignore MacOS specific things: 
 
@@ -27,10 +29,11 @@ node_modules
 
 #################################################################
 # Whitelist specific things (must be after Blacklist)
-
-!/README.md  # only the one at /
-!/.gitignore # only the one at /
-!/jeffpack-non-executing # this is actually recursive
+# only the one at / for files
+!/README.md 
+!/.gitignore 
+# this is actually recursive:
+!/jeffpack-non-executing 
 
 # Whitelisting things that start at / it not to hard but to 
 # whitelist something further in can be a bit tricky. 
