@@ -32,6 +32,10 @@ node_modules
 # only the one at / for files
 !/README.md 
 !/.gitignore 
+!/gitignore 
+!/git
+!/git-backup
+!/git-move
 # this is actually recursive:
 !/jeffpack-non-executing 
 
@@ -44,17 +48,18 @@ node_modules
 # Preparation for whitelisting in wp-content:
 !wp-content/
 wp-content/*
+
 # Preparation for whitelisting in wp-content/themes:
 !wp-content/themes/
 wp-content/themes/*
-# Preparation for whitelisting in wp-content/plugins:
-!wp-content/plugins/
-wp-content/plugins/*
 
 # now list each theme (after !wp-content/themes/)
 !wp-content/themes/jeffpack-parchmentpaper/
 
+# Preparation for whitelisting in wp-content/plugins:
+!wp-content/plugins/
+wp-content/plugins/*
+
 # now list each plugin (after !wp-content/plugin/)
-!wp-content/plugin/jeffpack-shortcodes/
-
-
+!wp-content/plugins/jeffpack-shortcodes/
+!wp-content/plugins/jeffpack-git/

@@ -1,4 +1,4 @@
-# ColorCards Styler Plugin for WordPress
+#  Shortcodes Plugin for WordPress
 
 Beautify long post/page content and add ease of navigation with Colorcards Shortcodes  
 
@@ -38,5 +38,4 @@ They title attribute does more than just set the text for the card, it also prov
 __Reloading Pages while Retaining States__  
 
 Normally when the viewer opens some sections and then reloads the page, the sections will not remember their states and will be collapsed, unless the shortcode has `open` or the url has a hash pointing to it. If jQuery is available these states will be retained via cookies.  
-
 

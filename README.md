@@ -20,6 +20,13 @@ This code is intended to be forked or even just a model for something else you m
 
 Git is used to track anything and everything about your site all at once (aside from actual content unless you'd like to, although this can cause problems). This means the git tracking is at the root of your WordPress site and is set up to not track the code from WordPress itself. `.gitignore` can be set up to be more like a "Git DON'T ignore" in that it whitelists files you'd like to track instead of specifying everything you don't. You can see the full file [here](.gitignore). Note that everything in this file would be better appended to `.git/info/exclude` because if any other git is added to a WordPress site it will use this `.gitignore` which you don't want. Moving the code would allow you to delete `.gitignore` but it's not possible to distribute the code in `.git/info/exclude` so `.gitignore` was used instead. If any of this is confusing it should become more clear after reading all the documentation in this repository.  
 
+<<<<<<< HEAD
+=======
+__UPDATE__:  
+
+The above is now only partly true. Instead of using `git` you'll use `./git` and most of `.gitignore` was moved to `info/exclude`. See [THIS README](wp-admin/plugins/jeffpack-multi-git/README.md).  
+
+>>>>>>> origin/experimental
 ## Installation 
 
 To get started with installation just `cd` to the root of the WordPress site and checkout various branches in without touching the WordPress Core code like this:  
@@ -58,7 +65,11 @@ Whatever you commit and push to the repository can then be available to the from
 
 ## Backing Up Your Site
 
+<<<<<<< HEAD
 You might actually choose to whitelist more of the files that come with WordPress as a means of backing them up but I would recommend not having a public repository storing this in that case. Also, you repository looses the ability to be reused for other sites this way and, if certain files that reference the host domain are git tracked, you can render your site stuck on that host unless you go in and modify the code. I have some tricks detailing some possible solutions in [THIS README](jeffpack-non-executing/additional-docs/git-tricks.md).  
+=======
+You might actually choose to whitelist more of the files that come with WordPress as a means of backing them up but I would recommend not having a public repository storing this in that case. Also, you repository looses the ability to be reused for other sites this way and, if certain files that reference the host domain are git tracked, you can render your site stuck on that host unless you go in and modify the code. I have some tricks detailing some possible solutions in [THIS README](jeffpack-non-executing/additional-docs/git-tricks.md) but they have mostly been supplanted by the built in solution already mentioned:[THIS README](wp-admin/plugins/jeffpack-multi-git/README.md).  
+>>>>>>> origin/experimental
 
 ## Future Plans
 
