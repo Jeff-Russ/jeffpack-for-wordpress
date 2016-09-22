@@ -3,26 +3,12 @@
 # Which can be placed in .gitignore or .git/info/exclude        #
 #...............................................................#
 
-#________________________________________________________________
-# Ignore everything directly at / first (then whitelist later)
+#################################################################
+# Blacklist (Ignores)
 
-/*
+/*   # Ignore everything directly at / (non-resursive)
 
-# some specific FILES at / to Un-ignore (whitelist)
-!/README.method
-!/.gitignore
-
-#________________________________________________________________
-# Un-ignore (whitelist) directories at / (this is recursive)
-
-!/jeffpack-non-executing
-!/wp-content/plugins/jeffpack-*
-!/wp-content/themes/jeffpack-*
-
-
-
-#________________________________________________________________
-# Ignore MacOS specific things
+# Ignore MacOS specific things: 
 
 .DS_Store
 Desktop.ini
@@ -31,10 +17,41 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-#________________________________________________________________
 # some other common things that should to be ignored
 *.pyc
 *.out
 venv
 node_modules
 .sass-cache
+
+
+#################################################################
+# Whitelist specific things (must be after Blacklist)
+
+!/README.md  # only the one at /
+!/.gitignore # only the one at /
+!/jeffpack-non-executing # this is actually recursive
+
+# Whitelisting things that start at / it not to hard but to 
+# whitelist something further in can be a bit tricky. 
+# To whitelist some plugin and themes but not all of wp-content
+# I took this advice Ryan Taylor's advice here: 
+# http://stackoverflow.com/questions/987142/
+
+# Preparation for whitelisting in wp-content:
+!wp-content/
+wp-content/*
+# Preparation for whitelisting in wp-content/themes:
+!wp-content/themes/
+wp-content/themes/*
+# Preparation for whitelisting in wp-content/plugins:
+!wp-content/plugins/
+wp-content/plugins/*
+
+# now list each theme (after !wp-content/themes/)
+!wp-content/themes/jeffpack-parchmentpaper/
+
+# now list each plugin (after !wp-content/plugin/)
+!wp-content/plugin/jeffpack-shortcodes/
+
+
