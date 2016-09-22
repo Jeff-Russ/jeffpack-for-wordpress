@@ -18,20 +18,7 @@ This code is intended to be forked or even just a model for something else you m
 
 ## How it Works
 
-Git is used to track anything and everything about your site all at once (aside from actual content unless you'd like to, although this can cause problems). This means the git tracking is at the root of your WordPress site and is set up to not track the code from WordPress itself. `.gitignore` can be set up to be more like a "Git DON'T ignore" in that it whitelists files you'd like to track instead of specifying everything you don't. It looks like this:  
-
-    # FIRST: Ignore everything first with * wildcard 
-    *
-    
-    # SECOND: Whitelist whatever you want NOT ignored with ! operator
-    !.gitignore
-    !README.md
-    # .... more stuff
-    
-    # LAST: Ignore things possibly found in whitelisted directories
-    # .... more stuff
-
-You can see the full file [here](.gitignore)
+Git is used to track anything and everything about your site all at once (aside from actual content unless you'd like to, although this can cause problems). This means the git tracking is at the root of your WordPress site and is set up to not track the code from WordPress itself. `.gitignore` can be set up to be more like a "Git DON'T ignore" in that it whitelists files you'd like to track instead of specifying everything you don't. You can see the full file [here](.gitignore). Note that everything in this file would be better appended to `.git/info/exclude` because if any other git is added to a WordPress site it will use this `.gitignore` which you don't want. Moving the code would allow you to delete `.gitignore` but it's not possible to distribute the code in `.git/info/exclude` so `.gitignore` was used instead. If any of this is confusing it should become more clear after reading all the documentation in this repository.  
 
 ## Installation 
 
