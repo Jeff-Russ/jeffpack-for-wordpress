@@ -4,22 +4,21 @@
 #...............................................................#
 
 #________________________________________________________________
-# Ignore WordPress things
+# Ignore everything directly at / first (then whitelist later)
 
-wp-includes/**
-wp-admin/**
-/wp-*.*
-/xmlrpc.php
-/error_log
-/.htaccess
-/index.php
-/licence.txt
-/readme.html
+/*
+
+# some specific FILES at / to Un-ignore (whitelist)
+!/README.method
+!/.gitignore
 
 #________________________________________________________________
-# In-ignore some things
+# Un-ignore (whitelist) directories at / (this is recursive)
 
-!.gitignore
+!/jeffpack-non-executing
+!/wp-content/plugins/jeffpack-*
+!/wp-content/themes/jeffpack-*
+
 
 
 #________________________________________________________________
