@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<checkstyle version="1.3.0">
-  <file name="wp_classes/SettingsHelper.php"/>
-  <file name="wp_classes/PluginData.php"/>
-  <file name="php_classes/HelperModule.php"/>
-  <file name="WpPlugin.php"/>
-  <file name="php_classes/PersistArgs.php"/>
-</checkstyle>
