@@ -1,0 +1,364 @@
+/*
+Theme Name: Twenty Sixteen Child
+Theme URI: https://wordpress.org/themes/twentysixteen/
+Template: twentysixteen
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Tags: black,blue,gray,red,white,yellow,dark,light,one-column,two-columns,right-sidebar,fixed-layout,responsive-layout,accessibility-ready,custom-background,custom-colors,custom-header,custom-menu,editor-style,featured-images,flexible-header,microformats,post-formats,rtl-language-support,sticky-post,threaded-comments,translation-ready
+Version: 1.2.1471230461
+Updated: 2016-08-15 03:07:41
+
+*/
+
+html {
+    font-family: Mate !important;
+}
+body {
+    background-color: #493631;
+}
+a {
+    color: #076077 !important;
+}
+fieldset {
+    border: 1px solid #b6b3a3 !important;
+}
+.menu-item-has-children a:after, .social-navigation a:before, .dropdown-toggle:after, .bypostauthor > article .fn:after, .comment-reply-title small a:before, .pagination .prev:before, .pagination .next:before, .pagination .nav-links:before, .pagination .nav-links:after, .search-submit:before {
+    font-weight: 900 !important;
+    font-style: bold !important;
+}
+body, button, input, select, textarea {
+    color: #493631 !important;
+    font-family: Mate !important;
+}
+blockquote {
+    border: 1px solid #b6b3a3 !important;
+}
+blockquote cite, blockquote small {
+    color: #493631 !important;
+}
+pre {
+    border: 1px solid #b6b3a3 !important;
+}
+code {
+    background-color: #cbc8be !important;
+}
+mark, ins {
+    color: #4c85aa !important;
+}
+table, th, td {
+    border: 1px solid #b6b3a3;
+}
+::-webkit-input-placeholder {
+    font-family: Mate !important;
+}
+:-moz-placeholder {
+    font-family: Mate !important;
+}
+::-moz-placeholder {
+    font-family: Mate !important;
+}
+:-ms-input-placeholder {
+    font-family: Mate !important;
+}
+button, button[disabled]:hover, button[disabled]:focus, input[type="button"], input[type="button"][disabled]:hover, input[type="button"][disabled]:focus, input[type="reset"], input[type="reset"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="submit"], input[type="submit"][disabled]:hover, input[type="submit"][disabled]:focus {
+    background-color: rgba(178, 173, 149, 0);
+    border: 1px solid rgba(73, 54, 49, 0.5) !important;
+    color: #0a5575 !important;
+    font-family: Mate !important;
+}
+button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: #bfd1cc !important;
+}
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], textarea {
+    background-color: #eee9db !important;
+    border: 1px solid #b6b3a3 !important;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="number"]:focus, textarea:focus {
+    background-color: #eeefdb !important;
+    color: #493631 !important;
+}
+.post-password-form label {
+    font-family: Mate !important;
+}
+.main-navigation {
+    font-family: Mate !important;
+}
+.main-navigation a {
+    color: #004557 !important;
+}
+.main-navigation a:hover, .main-navigation a:focus {
+    color: #4c85aa !important;
+}
+.main-navigation .primary-menu {
+    border-bottom: 1px solid #4d5a68 !important;
+}
+.dropdown-toggle {
+    background-color: #ddd3b6 !important;
+    color: #493631 !important;
+}
+.dropdown-toggle:after {
+    border: 1px solid #b6b3a3 !important;
+}
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+    background-color: #eeefdb !important;
+    color: #4c85aa !important;
+}
+.social-navigation a {
+    border: 1px solid #b6b3a3 !important;
+    color: #004557 !important;
+}
+.social-navigation a:hover:before, .social-navigation a:focus:before {
+    color: #4c85aa !important;
+}
+.post-navigation {
+    border-bottom: 1px solid #4d5a68 !important;
+    font-family: Mate !important;
+    border-top: 1px solid #4d5a68 !important;
+}
+.post-navigation a {
+    color: #004557 !important;
+}
+.post-navigation .post-title {
+    font-family: Mate !important;
+}
+.post-navigation a:hover .post-title, .post-navigation a:focus .post-title {
+    color: #4c85aa !important;
+}
+.post-navigation div + div {
+    border-top: 1px solid #4d5a68 !important;
+}
+.pagination {
+    font-family: Mate !important;
+    border-top: 1px solid #4d5a68 !important;
+}
+.pagination:before, .pagination:after {
+    background-color: rgba(178, 173, 149, 0);
+    border: 1px solid rgba(73, 54, 49, 0.5) !important;
+    -moz-border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+    -o-border-radius: 8px !important;
+    border-radius: 8px !important;
+}
+.pagination a:hover, .pagination a:focus {
+    color: #0a5575 !important;
+}
+.pagination .nav-links:before, .pagination .nav-links:after {
+    color: #4c85aa !important;
+}
+.pagination .prev, .pagination .next {
+    background-color: rgba(178, 173, 149, 0);
+    color: #4c85aa !important;
+}
+.pagination .prev:hover, .pagination .prev:focus, .pagination .next:hover, .pagination .next:focus {
+    background-color: #bfd1cc !important;
+    color: #0a5575 !important;
+}
+.image-navigation, .comment-navigation {
+    border-bottom: 1px solid #4d5a68 !important;
+    font-family: Mate !important;
+}
+.site .skip-link {
+    background-color: rgba(73, 54, 49, 0) !important;
+    font-family: Mate !important;
+}
+.logged-in .site .skip-link {
+    font-family: Mate !important;
+}
+.widget {
+    border-top: 1px solid #4d5a68 !important;
+}
+.widget .widget-title {
+    font-family: Mate !important;
+}
+.widget-title a {
+    color: #004557 !important;
+}
+.widget_calendar tbody a {
+    color: #4c85aa !important;
+}
+.widget_calendar tbody a:hover, .widget_calendar tbody a:focus {
+    color: #0a5575 !important;
+}
+.widget_recent_entries .post-date {
+    font-family: Mate !important;
+}
+.widget_rss .rss-date, .widget_rss cite {
+    font-family: Mate !important;
+}
+.tagcloud a {
+    border: 1px solid #b6b3a3 !important;
+    font-family: Mate !important;
+}
+.tagcloud a:hover, .tagcloud a:focus {
+    color: #4c85aa !important;
+}
+.site {
+    background-color: rgba(73, 54, 49, 0) !important;
+}
+.site-content {
+    background-color: #ddd3b6 !important;
+    padding-top: 1em !important;
+    background-image: url(/wp-content/themes/twentysixteen-child/images/paper-1.png) !important;
+    -moz-box-shadow: 0 0px 10px rgba(0,0,0,0.40), inset 0px 0px 8px 8px #dfd0b0 !important;
+    -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.40), inset 0px 0px 8px 8px #dfd0b0 !important;
+    -o-box-shadow: 0 0px 10px rgba(0,0,0,0.40), inset 0px 0px 8px 8px #dfd0b0 !important;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.40), inset 0px 0px 8px 8px #dfd0b0 !important;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+    border-radius: 10px !important;
+}
+.site-header {
+    padding: 1em 3% !important;
+}
+.site-branding {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+.site-title {
+    font-size: 2rem;
+    font-family: Mate !important;
+    font-weight: 900 !important;
+}
+.site-branding .site-title a {
+    color: #ddd3b6 !important;
+}
+.site-branding .site-title a:hover, .site-branding .site-title a:focus {
+    color: #4c85aa !important;
+}
+.site-description {
+    color: #b1a48e !important;
+}
+.menu-toggle {
+    background-color: #ddd3b6 !important;
+    border: 1px solid #b6b3a3 !important;
+    color: #493631 !important;
+}
+.menu-toggle:hover, .menu-toggle:focus {
+    background-color: #eeefdb !important;
+    color: #4c85aa !important;
+}
+.menu-toggle.toggled-on, .menu-toggle.toggled-on:hover, .menu-toggle.toggled-on:focus {
+    background-color: #493631;
+    color: #0a5575 !important;
+}
+.entry-title {
+    font-family: Mate !important;
+}
+.entry-title a {
+    color: #004557 !important;
+}
+.entry-title a:hover, .entry-title a:focus {
+    color: #4c85aa !important;
+}
+.entry-footer {
+    font-family: Mate !important;
+}
+.entry-footer a:hover, .entry-footer a:focus {
+    color: #4c85aa !important;
+}
+.sticky-post {
+    font-family: Mate !important;
+}
+.page-header {
+    border-top: 1px solid #4d5a68 !important;
+}
+.page-title {
+    font-family: Mate !important;
+}
+.page-links {
+    font-family: Mate !important;
+}
+.page-links a, .page-links > span {
+    border: 1px solid #b6b3a3 !important;
+}
+.page-links a {
+    background-color: #493631;
+    color: #4c85aa !important;
+}
+.page-links a:hover, .page-links a:focus {
+    color: #0a5575 !important;
+}
+.page-links > .page-links-title {
+    color: #493631 !important;
+}
+.comments-title, .comment-reply-title {
+    font-family: Mate !important;
+    border-top: 1px solid #4d5a68 !important;
+}
+.comment-author {
+    color: #493631 !important;
+}
+.comment-metadata, .pingback .edit-link {
+    font-family: Mate !important;
+}
+.comment-metadata a:hover, .comment-metadata a:focus, .pingback .comment-edit-link:hover, .pingback .comment-edit-link:focus {
+    color: #4c85aa !important;
+}
+.comment-reply-link {
+    border: 1px solid #b6b3a3 !important;
+    color: #4c85aa !important;
+    font-family: Mate !important;
+}
+.comment-reply-link:hover, .comment-reply-link:focus {
+    color: #4c85aa !important;
+}
+.comment-form label {
+    font-family: Mate !important;
+}
+.no-comments {
+    font-family: Mate !important;
+}
+.required {
+    color: #004557 !important;
+    font-family: Mate !important;
+}
+.comment-reply-title small a:hover, .comment-reply-title small a:focus {
+    color: #0a5575 !important;
+}
+.site-info a:hover, .site-info a:focus {
+    color: #4c85aa !important;
+}
+.site-footer .site-title:after {
+    font-family: Mate !important;
+}
+.entry-content .wp-smiley, .entry-summary .wp-smiley, .comment-content .wp-smiley, .textwidget .wp-smiley {
+    border: 1px solid #b6b3a3 !important;
+}
+.widecolumn .mu_register .mu_alert {
+    background-color: #ddd3b6 !important;
+}
+.widecolumn label, .widecolumn .mu_register label {
+    font-family: Mate !important;
+}
+@media print {
+body, blockquote cite, blockquote small, .site-branding .site-title a, .entry-title a, .comment-author {
+    color: #493631 !important;
+}
+a {
+    color: #4c85aa !important;
+}
+}
+@media screen and (min-width: 44.375em) {
+.site {
+    margin-right: 5% !important;
+    margin-left: 5% !important;
+}
+}
+@media screen and (min-width: 56.875em) {
+.main-navigation li:hover > a, .main-navigation li.focus > a {
+    color: #4c85aa !important;
+}
+.main-navigation ul ul {
+    border-bottom: 1px solid #4d5a68 !important;
+}
+.main-navigation ul ul li {
+    background-color: #ddd3b6 !important;
+    border: 1px solid #b6b3a3 !important;
+}
+.site-content {
+    padding-right: 2% !important;
+    padding-left: 2% !important;
+}
+}

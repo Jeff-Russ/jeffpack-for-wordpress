@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Colorcards Test</title>
+	<link rel="stylesheet" href="colorcards-shortcodes-test.css">
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+</head>
+<body>
+
+<div class="test-content">
+
+	<h3>&lt;button&gt; with color classes</h3>
+	<button class="btn default">.default</button>
+	<button class="btn aqua">.aqua</button>
+	<button class="btn green">.green</button>
+	<button class="btn blue">.blue</button>
+	<button class="btn orange">.orange</button>
+	<button class="btn red">.red</button>
+	<br>
+	<button class="btn aqua focus">focus/active</button>
+	<button class="btn green focus">focus/active</button>
+	<button class="btn blue focus">focus/active</button>
+	<button class="btn orange focus">focus/active</button>
+	<button class="btn red focus">focus/active</button>
+	<br>
+	<button class="btn aqua disabled">disabled</button>
+	<button class="btn green disabled">disabled</button>
+	<button class="btn blue disabled">disabled</button>
+	<button class="btn orange disabled">disabled</button>
+	<button class="btn red disabled">disabled</button>
+	<br>
+	<button class="btn aqua link">.link</button>
+	<button class="btn green link">.link</button>
+	<button class="btn blue link">.link</button>
+	<button class="btn orange link">.link</button>
+	<button class="btn red link">.link</button>
+	<br>
+
+	<h3>Different Sizes applied to &lt;button or&gt; .button</h3>
+	<button type="button" class="btn aqua lg">.lg</button>
+	<button type="button" class="btn aqua md">.md</button>
+	<button type="button" class="btn aqua sm">.md</button>
+	<button type="button" class="btn aqua xs">.xs</button>
+	<p>Above should not be used with .link<br>
+		Also not that .md is the same as nothing added at all!
+	</p>    
+	<h3>&lt;button&gt; without color classes showing state classes</h3>
+	<button>&lt;button&gt;</button>
+	<button class="link">&lt;button class="link"&gt;</button>
+	<button class="disabled">&lt;button&gt; disabled or .disabled</button>
+	<button class="link disabled">&lt;button class="link"&gt; disabled or .disabled</button>
+	<button class="focus">&lt;button&gt; focus, active, .focus or .active</button>
+	<button class="link focus">&lt;button class="link"&gt; focus, active, .focus or .active</button>
+
+	<h3>Use .button for Other Elements</h3>
+
+	<a href="#checkbox-1" class="button aqua link">&lt;a&gt;</a>
+	<a href="#" class="button aqua link">a.link</a>
+	<input type="button" class="button aqua" value="<input type='button'>">
+	<input type="submit" class="button aqua" value="<input type='submit'>">
+	<label class="button aqua">&lt;label&gt;</label>
+	<div class="button aqua">&lt;div&gt;</div>
+	<span class="button aqua">&lt;span&gt;</span>
+
+	<h3>.block when applied to &lt;button&gt; or .button</h3>
+
+	<button class="aqua block">button.aqua.block</button>
+	<a href="#" class="button orange block">a.orange.block</a>
+	<input type="button" class="button green block" value="input.button.green.block">
+	<label class="button blue block">label.button.blue.block</label>
+	<div class="button orange block" >div.button.orange.block</div>
+	<span class="button red block">span.button.red.block</span>
+	<br>
+	<hr>
+	<h3>.card is similar button / .button but...<h3>
+		<div class="pad-left-1">
+			<p><small>
+				1. text is not centered <small>(may not be apparent unless .card.block)</small><br>
+				2. only &lt;a&gt; click behaivor syles <small>(unless you do .card.clickable)</small>
+			</p>
+		</div>
+
+
+
+	<div class="card blue">div.blue.card</div>
+	<div class="card blue block">div.blue.card.block</div>
+	<div class="card blue block clickable">div.blue.card.block.clickable</div>
+	<a class="card default block">a.card.default.block</a>
+
+	<label class="card red block">label.card.red.block</label>
+	<label class="card red block clickable">label.card.red.block.clickable</label>
+	<input type="submit" class="card orange block" value="input.card.orange.block">
+	<input type="submit" class="card orange block clickable" value="input.card.orange.block.clickable">
+
+<!--   <div class="dropdown">
+		<button class="green-bg">Hover me</button>
+		<div class="content">
+			<a href="#">Link 1</a>
+			<hr>
+			<a href="#">Link 2</a>
+			<p>stuff</p>
+			<a href="#">Link 3</a></div>
+	</div> -->
+	<br><hr>
+
+	<h3>carets</h3>
+
+	<button class="caret-after">button.caret</button>
+	<button class="caret-before">button.caret-before</button>
+	<p>aliases:
+		<small class="pad-left-1"><br>
+			.caret-after == caret-down-after</small><br>
+		<small class="pad-left-1">
+			.caret-before == caret-down-before<br></small>
+	</p>
+	<button class="caret-right">button.caret-right</button>
+	<button class="caret-right-before">button.caret-right-before</button>
+	<p>alias:<small>.caret-right == .caret-right-after</small>
+	</p>
+	<button class="caret-down">button.caret-down</button>
+	<button class="caret-down-before">button.caret-down-before</button>
+	<p>alias:<small>.caret-down == .caret-down-after</small>
+	</p>
+	<button class="caret-up">button.caret-up</button>
+	<button class="caret-up-before">button.caret-up-before</button>
+	<p>alias:<small>.caret-up == .caret-up-after</small>
+	</p>
+	<br>
+	<hr>
+	<h3>.collapsible</h3><br>
+	<div class="collapsible" id="section-one">
+		<input type="checkbox" id="checkbox-1" checked />
+		<label class="card default" for="checkbox-1">label.card.default.clickable.caret-before</label>
+		<section>
+			<h3 class="test-h3"></h3>
+			<p class="test-para1"></p>
+
+			<div class="collapsible" id="section-inner">
+				<input type="checkbox" id="checkbox-1-inner" />
+				<label class="card xs clickable" for="checkbox-1-inner">label.card.xs.clickable.caret-before</label>
+				<section id="section-inner">
+					<h3 class="test-h3"></h3>
+					<p class="test-para1"></p>
+				</section>
+			</div>
+
+			there is more content just above me!
+
+		</section>
+	</div>
+
+	<div class="collapsible" id="section-two">
+		<input type="checkbox" id="checkbox-2" />
+		<label class="card aqua clickable" for="checkbox-2">label.card.aqua.clickable.caret-before</label>
+		<section>
+			<h3 class="test-h3"></h3>
+			<p class="test-para1"></p>
+			<p class="test-para2"></p>
+		</section>
+	</div>
+
+	<div class="collapsible" id="section-three">
+		<input type="checkbox" id="checkbox-3" />
+		<label class="card blue clickable" for="checkbox-3">label.card.blue.clickable.caret-before</label>
+		<section>
+			<h3 class="test-h3"></h3>
+			<p class="test-para1"></p>
+			<p class="test-para2"></p>
+		</section>
+	</div>
+		
+	<div class="collapsible" id="section-four">
+		<input type="checkbox" id="checkbox-4" />
+		<label class="card orange clickable" for="checkbox-4">label.card.orange.clickable.caret-before</label>
+		<section>
+			<h3 class="test-h3"></h3>
+			<p class="test-para1"></p>
+			<p class="test-para2"></p>
+		</section>
+	</div>
+	
+	<div class="collapsible" id="section-five">
+		<input type="checkbox" id="checkbox-5" />
+		<label class="card red clickable" for="checkbox-5">label.card.red.clickable.caret-before</label>
+		<section>
+			<h3 class="test-h3"></h3>
+			<p class="test-para1"></p>
+			<p class="test-para2"></p>
+		</section>
+	</div>
+	<br>
+	<hr>
+	<h3>.pad-right-# .pad-top-# .pad-bottom-#</h3>
+	<strong>These can be used like tab stops</strong>
+	<p class="pad-left-0">p.pad-left-0</p>
+	<p class="pad-left-1">p.pad-left-1</p>
+	<p class="pad-left-2">p.pad-left-2</p>
+	<p class="pad-left-3">p.pad-left-3</p>
+	<p class="pad-left-4">p.pad-left-4</p>
+	<p class="pad-left-5">p.pad-left-5</p>
+	<p class="pad-left-6">p.pad-left-6</p>
+	<p class="pad-left-7">p.pad-left-7</p>
+	<p class="pad-left-8">p.pad-left-8</p>
+	<p class="pad-left-9">p.pad-left-9</p>
+
+	<strong>or like approximately 3 spaces in a row</strong>
+	<p>some p text<span class="pad-left-1">span.pad-left-1</span><span class="pad-left-2">span.pad-left-2</span></p>
+	<strong>Here are their definitions:</strong>
+	<pre>
+	.pad-left-0 { padding-left: 0vw; } 
+	.pad-left-1 { padding-left: 2.5vw; }
+	.pad-left-2 { padding-left: 5.1vw; }
+	.pad-left-3 { padding-left: 7.8vw; }
+	.pad-left-4 { padding-left: 10.6vw; }
+	.pad-left-5 { padding-left: 13.5vw; }
+	.pad-left-6 { padding-left: 16.5vw; }
+	.pad-left-7 { padding-left: 19.6vw; }
+	.pad-left-8 { padding-left: 22.8vw; }
+	.pad-left-9 { padding-left: 26.1vw; }
+	</pre>
+	<strong>
+		Each has a right top and bottom version with the latter two using vh instead of vw.
+		All are 0 through 9
+	</strong>
+
+</div><!-- ###### END .test-content ###### -->
+
+	
+</body>
+<script src="colorcards-shortcodes-test.js"></script>
+
+<style> /* ###### JUST FOR TEST ####### */
+	
+	.test-body {
+		background-color: #493631;
+		margin: none;
+		padding: none;
+		background-image: url(https://s3.amazonaws.com/transparent-textures/pattern/skulls.png);
+	}
+
+	.test-content {
+		margin: 5%;
+		background-color: #ddd3b6 !important;
+		padding: 1em !important;
+		background-image: url(https://s3.amazonaws.com/transparent-textures/paper/otis-redding.png);
+		-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), inset 0 0 8px 8px #dfd0b0;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), inset 0 0 8px 8px #dfd0b0;
+		-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), inset 0 0 8px 8px #dfd0b0;
+		-o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), inset 0 0 8px 8px #dfd0b0;
+		-webkit-border-radius: 10px !important;
+		-moz-border-radius: 10px !important;
+		border-radius: 10px !important;
+		-o-border-radius: 10px !important;
+	}
+
+	.test-h3:after {
+		content: "This is an example collapsible item";
+	}
+
+	.test-para1:after {
+		content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec posuere lorem. Pellentesque hendrerit, lorem luctus porttitor vestibulum, eros sapien mattis libero, euismod congue neque nisi at ipsum. Mauris semper ipsum sit amet metus semper malesuada. Donec vel est justo, ac porta diam.";
+	}
+
+	.test-para2:after {
+		content: "In ut est in orci commodo blandit. Cras rhoncus ultricies augue. Proin quam odio, venenatis ut tempus tristique, aliquet in velit. Pellentesque volutpat facilisis orci, ut congue mi rhoncus at. Nullam vehicula dignissim neque, sed rhoncus magna ultricies et.";
+	}
+</style>
+</html>

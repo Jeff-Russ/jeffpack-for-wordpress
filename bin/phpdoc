@@ -1,0 +1,8 @@
+#!/bin/bash
+
+main () {
+	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
+	"$this_dir/$phpdoc/bin/phpdoc" "$@"
+}
+main "$@"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+phpdoc_alias () {
+	local wd="$(pwd)"
+	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
+	local phpdoc_alias="$this_dir/bin/$phpdoc/bin/phpdoc"
+
+	mkdir -p "$wd/$1/phpdoc"
+	"$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc"
+}
+phpdoc_alias "$1"
