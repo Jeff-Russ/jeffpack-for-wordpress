@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+/**
+ * HelperModule is a collection of static methods mostly for general php useages
+ * 
+ * @package     JeffPack
+ * @subpackage  General PHP Classes
+ * @access      public
+ * @author      Jeff Russ
+ * @copyright   2016 Jeff Russ
+ * @license     GPL-2.0
+ */
+if ( ! class_exists('HelperModule')) {
+	/**
+	 * The HelperModule class is a collection of static methods mostly for general php useages
+	 */
+	class HelperModule { 
+
+		/**
+		* This static method for displaying booleans as strings
+		*
+		* @param  boolean $boolean a boolean variable
+		* @return string either 'true' or 'false'
+		* @access public
+		*/
+		static public function bool2str ($boolean) { return $boolean ? 'true' : 'false'; }
+
+		/**
+		* This static method for displaying octal number without converting
+		*
+		* @param  integer $octal_num an octal number
+		* @return string  representing decimal number
+		* @access public
+		* example
+		*/
+		static public function octal2str ($octal_num) { return sprintf(&quot;%04o&quot;, $octal_num); }
+
+		/**
+		* This static method to get string after final backslash (/)
+		*
+		* @param  string  $string typically a local path or uri
+		* @return string  portion after final backslash (/)
+		* @access public
+		*/
+		static public function strAfterBslash ($string) {return array_pop(explode('/', $string)); }
+
+		/**
+		* This static method that captures var_dump of array as string, trims the fat and returns string
+		*
+		* @param  array   $array 
+		* @return string  representing array
+		* @access public
+		*/
+		static public function arrayToString ($array)
+		{
+			ob_start();
+			var_dump($array);
+			$result = ob_get_clean();
+			$deletes = array(
+				'/&lt;i&gt;(.*?)&lt;\/i&gt;/',
+				'/ &lt;small&gt;(.*?)&lt;\/small&gt;/',
+				'/(.*?)&lt;b&gt;(.*?)&lt;\/b&gt;(.*?)\n/',
+			);
+			$result = preg_replace($deletes, '', $result);
+			return $result; 
+		}
+
+		/**
+		* This static method converts a string (path or file) to a snake_case string
+		* by
+		* 1. removing &quot;.php&quot;
+		* 2. replacing  spaces, dashes dots and backslashes with underscores 
+		* 3. removing all other non-alphanumeric other than 'underscores 
+		* 4. converting to all apha characters to lower-case
+		* 5. if the first character(s) is a number it's removed
+		*
+		* @param  string  $str example: &quot;dir/my-plugin.php&quot;
+		* @return string  &quot;dir/my-plugin.php&quot; would return: &quot;dir_my_plugin&quot;
+		* @access public
+		*/
+		static public function toSnakeCase( $str ) 
+		{
+			$str = preg_replace(&quot;/(.+)\.php$/&quot;, &quot;$1&quot;, $str);
+			$baddies = array(' ', '-', '.', '/');
+			$str = str_replace($baddies, '_', $str);
+			$str = preg_replace(&quot;/[^A-Za-z0-9_]/&quot;, '', $str );
+			$str = strtolower($str);
+			while ( is_numeric($str[0] ) ) $str = substr($str, 1);
+			return $str;
+		}
+
+		/**
+		* This static method determines if argument is an Closure object
+		*
+		* @param  mixed   $var of any type
+		* @return boolean true if $var is a Closure object
+		* @access public
+		*/
+		static public function isClosure($var) {
+			return is_object($var) &amp;&amp; ($var instanceof Closure);
+		}
+
+		/**
+		* This static method take no arguments and 
+		* returns full path of WordPress home path.
+		* Use when get_home_path() might not be available.
+		* MUST be called from somewhere inside /wp-content
+		*
+		* @return string  home path of WordPress installation
+		* @access public
+		*/
+		static public function wpHomePath() { # just like get_home_path() from WP
+			return substr( __FILE__, 0, strpos(__FILE__, &quot;wp-content&quot;) );
+		}
+	}
+}
+
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

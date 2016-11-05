@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+/**
+ * 
+ * Include this file and gain access to everything you need for a plugin via the
+ * WpPlugin class, which extends SettingsHelper, PluginData, PersistArgs 
+ * and HelperModule
+ * 
+ * @package     JeffPack
+ * @subpackage  WordPress Classes
+ * @author      Jeff Russ
+ * @copyright   2016 Jeff Russ
+ * @license     GPL-2.0
+ */
+
+include_once substr( __FILE__, 0, strpos(__FILE__, &quot;wp-content&quot;) ).'wp-admin/includes/file.php';
+include_once substr( __FILE__, 0, strpos(__FILE__, &quot;wp-content&quot;) ).'wp-admin/includes/plugin.php';
+include_once 'php_classes/HelperModule.php';
+include_once 'php_classes/PersistArgs.php';
+include_once 'wp_classes/PluginData.php';
+include_once 'wp_classes/SettingsHelper.php';
+
+if ( ! class_exists('WpPlugin') ) {
+	/**
+	 * WpPlugin class serves as a base for creating WordPress Plugins.
+	 * 
+	 * Include this file and gain access to everything you need for a plugin via the
+	 * WpPlugin class, which extends SettingsHelper, PluginData, PersistArgs 
+	 * and HelperModule
+	 */
+	class WpPlugin extends SettingsHelper {}
+}
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

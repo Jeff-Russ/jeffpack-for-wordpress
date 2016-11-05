@@ -1,5 +1,6 @@
 <?php
 /**
+ * 
  * Include this file and gain access to everything you need for a plugin via the
  * WpPlugin class, which extends SettingsHelper, PluginData, PersistArgs 
  * and HelperModule
@@ -19,10 +20,12 @@ include_once 'wp_classes/PluginData.php';
 include_once 'wp_classes/SettingsHelper.php';
 
 if ( ! class_exists('WpPlugin') ) {
-	/*
+	/**
+	 * WpPlugin class serves as a base for creating WordPress Plugins.
+	 * 
 	 * Include this file and gain access to everything you need for a plugin via the
 	 * WpPlugin class, which extends SettingsHelper, PluginData, PersistArgs 
 	 * and HelperModule
-	 */ 
+	 */
 	class WpPlugin extends SettingsHelper {}
 }

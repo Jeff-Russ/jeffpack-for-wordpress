@@ -5,8 +5,13 @@ phpdoc_alias () {
 	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
 	local phpdoc_alias="$this_dir/bin/$phpdoc/bin/phpdoc"
+	local templates="$phpdoc_alias/data/templates"
 
 	mkdir -p "$wd/$1/phpdoc"
-	"$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc"
+	"$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="clean"
+	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="old-ocean"
+	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="responsive"
+	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="zend"
+	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="checkstyle"
 }
 phpdoc_alias "$1"

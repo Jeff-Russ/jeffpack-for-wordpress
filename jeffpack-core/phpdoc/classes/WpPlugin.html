@@ -106,12 +106,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1768359331"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-22592387"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1768359331" class="accordion-body collapse in">
+            <div id="namespace-22592387" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -167,25 +167,10 @@
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
                     <h1><small>\</small>WpPlugin</h1>
-                    <p><em>Include this file and gain access to everything you need for a plugin via the
+                    <p><em>WpPlugin class serves as a base for creating WordPress Plugins.</em></p>
+                    <p>Include this file and gain access to everything you need for a plugin via the
 WpPlugin class, which extends SettingsHelper, PluginData, PersistArgs
-and HelperModule</em></p>
-                    <p>It makes heavy use of the PersistArgs class which it extends.</p>
-<p>Most options are chainable, using  the variable data from the previous call
-in the next. For example, you call</p>
-<p>$plug-&gt;addSettingsPage()-&gt;addSettingsSection()-&gt;addSetting(&quot;Your Name&quot;);</p>
-<p>The section is added to the page you just made, not some previously made one,
-and the setting is added to the section you just made. Even if you don't chain
-the above would work since it's in logical order but if it's not the last
-argument is passed by reference and written to for future use in what would
-be the next logical method call. For example:</p>
-<p>$plug-&gt;addSettingsPage('menu' &quot;on sidebar&quot;, null, $menu_def_section);
-$plug-&gt;addSettingsPage('options' &quot;in tools&quot;, null, $tools_def_section);</p>
-<p>$menu_my_section = $menu_def_section;</p>
-<p>$plug-&gt;addSettingsSection('my section', $menu_my_section);</p>
-<p>$plug-&gt;addSetting('setting1', '', '', $menu_def_section );
-$plug-&gt;addSetting('setting2', '', '', $menu_my_section );
-$plug-&gt;addSetting('setting3', '', '', $tools_def_section);</p>
+and HelperModule</p>
                     
                                         
                     <section id="summary">
@@ -263,7 +248,7 @@ $plug-&gt;addSetting('setting3', '', '', $tools_def_section);</p>
                     
                     <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/wp_classes.WpPlugin.html"><div class="path-wrapper">wp_classes/WpPlugin.php</div></a></dd>
+                            <dd><a href="../files/WpPlugin.html"><div class="path-wrapper">WpPlugin.php</div></a></dd>
                                                 <dt>Package</dt>
                             <dd><div class="namespace-wrapper">JeffPack</div></dd>
                                                 <dt>Class hierarchy</dt>
@@ -1403,7 +1388,7 @@ into $this-&gt;args overriding any matching keys in $this-&gt;args.</p>
             <h3 id="source-view-label">WpPlugin.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/wp_classes/WpPlugin.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/WpPlugin.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
@@ -1443,7 +1428,7 @@ into $this-&gt;args overriding any matching keys in $this-&gt;args.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on November 5th, 2016 at 06:50.
+                    on November 5th, 2016 at 09:49.
                 </section>
             </section>
         </section>
