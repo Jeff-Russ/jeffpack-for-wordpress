@@ -14,4 +14,4 @@ phpdoc_alias () {
 	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="zend"
 	# "$phpdoc_alias" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="checkstyle"
 }
-phpdoc_alias "$1"
+[[ $# -eq 0 ]] && phpdoc_alias "jeffpack-lib" || phpdoc_alias "$1"

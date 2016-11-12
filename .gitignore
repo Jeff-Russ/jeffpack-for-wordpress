@@ -1,4 +1,7 @@
 
+
+/TGM-Plugin-Activation/*
+
 # Ignore MacOS specific things: 
 
 .DS_Store
