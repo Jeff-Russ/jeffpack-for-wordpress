@@ -1,10 +1,12 @@
 #!/bin/bash
 
-main () {
+validate_json_cmd () {
+	local wd="$(pwd)"
 	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
-	"$this_dir/$phpdoc/bin/validate-json" "$@"
+	local phpdoc_repo="$this_dir/phpDocumentor2"
+
+	local validate_json_exec="$phpdoc_repo/bin/validate-json"
+
+	"$validate_json_exec" "$@"
 }
-main "$@"
-
-
+validate_json_cmd "$@"

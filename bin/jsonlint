@@ -1,8 +1,12 @@
 #!/bin/bash
 
-main () {
+jslint_cmd () {
+	local wd="$(pwd)"
 	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
-	"$this_dir/$phpdoc/bin/jslint" "$@"
+	local phpdoc_repo="$this_dir/phpDocumentor2"
+
+	local jslint_exec="$phpdoc_repo/bin/jslint"
+	
+	"$jslint_exec" "$@"
 }
-main "$@"
+jslint_cmd "$@"

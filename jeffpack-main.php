@@ -20,7 +20,19 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-include_once 'jeffpack-lib/WpPluginBase.php';
+
+include_once 'jeffpack-include/include.php';
+// include_once 'jeffpack-include/jeffpack-lib/z_old/scss.inc.php'; // Sass Compiler (vendor)
+// include_once 'jeffpack-include/jeffpack-lib/jr_wp_lib/WpScss.php'; // Compiling Manager
+// include_once 'jeffpack-plugin/include.php'; // Compiling Manager
+
+// include_once 'jeffpack-plugin/JpScssSettings.php'; // Options page class
+$jp_plugin = new JeffPack();
+if( is_admin() ) {
+  $jp_plugin->add_scss_settings_page();
+  include_once 'jeffpack-include/wp-scss.php';
+}
+
 
 // add_action( 'activated_plugin', function( $plugin, $network_activation ) {
 // 	add_filter('admin_footer_text', function () use ($plugin) { echo "$plugin | "; });
@@ -30,36 +42,40 @@ include_once 'jeffpack-lib/WpPluginBase.php';
 
 // delete_option('my_options_name');
 
-class JeffpackMain extends WpPluginBase {}
 
-$jeffpack_main = new JeffpackMain();
+// $jp_plugin->addEmptyMenu(['menu_title' => "Menu I"]);
+
+$menu_slug = $jp_plugin
+  ->addAdminMenu()
+  ->addAdminPage("Subpage1", "Submenu1")
+  ->addSetting("Setting1", "Setting1def")
+  ->addAdminPage("Subpage2", "Submenu2")
+  ->addSetting("Setting2", "Setting3def");
 
 
-// $return = $jeffpack_main
+// $jp_plugin
 // 	->addSettingsPage("menu", "PAGE", "MENU", $out)
 // 	->addSettingsSection("Section name", $out)
 // 	->addSetting("Setting1", "Setting1def");
 
-add_action( 'wp_dashboard_setup', function() use ($jeffpack_main)
-{
-  wp_add_dashboard_widget( # arg1 is css class and key in db.
-  'jeffpack-main', __( 'My Plugin' ), function() use ($jeffpack_main)
-  {
-    echo "<h3>Hello from My Plugin</h3>";
-
-    // echo var_dump(basename(__FILE__, ".php"));
-    echo $jeffpack_main->displayInfo(['plugin']);
-    // echo $jeffpack_main->logs['info'];
-    // echo $jeffpack_main->logs['GLOBALS'];
-    // echo $jeffpack_main->logs['settings_pages'];
-  });
-});
-
-
-// $jeffpack_main->addSettingsSection("Section2");
-// $jeffpack_main->addSetting("Setting2", "Setting3def", '<input type="text" name="$name" value="$value">');
-// $jeffpack_main->addSetting("Setting3", "Setting3def", function($args) {
+// $jp_plugin->addSettingsSection("Section2");
+// $jp_plugin->addSetting("Setting2", "Setting3def", '<input type="text" name="$name" value="$value">');
+// $jp_plugin->addSetting("Setting3", "Setting3def", function($args) {
 // 	extract($args);
 // 	echo $setting_id;
 // });
 
+add_action( 'wp_dashboard_setup', function() use ($jp_plugin)
+{
+  wp_add_dashboard_widget( # arg1 is css class and key in db.
+  'jeffpack-main', __( 'My Plugin' ), function() use ($jp_plugin)
+  {
+    echo "<h3>Hello from My Things</h3>";
+    echo var_dump($jp_plugin->info['admin_menu']);
+    echo var_dump($jp_plugin->info['settings_pages']);
+    // echo "WPSCSS_PLUGIN_DIR: " . WPSCSS_PLUGIN_DIR;
+    // echo $jp_plugin->logs['info'];
+    // echo $jp_plugin->logs['GLOBALS'];
+    // echo $jp_plugin->logs['settings_pages'];
+  });
+});

@@ -1,8 +1,19 @@
 #!/bin/bash
 
-main () {
+phpdoc_cmd () {
+	local wd="$(pwd)"
 	local this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-	local phpdoc="phpDocumentor2/phpDocumentor-2.9.0"
-	"$this_dir/$phpdoc/bin/phpdoc" "$@"
+	local phpdoc_repo="$this_dir/phpDocumentor2"
+	
+	local templates_dir="$phpdoc_repo/data/templates"
+	local phpdoc_exec="$phpdoc_repo/bin/phpdoc"
+
+	mkdir -p "$wd/$1/phpdoc"
+	"$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="clean"
+	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="old-ocean"
+	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="responsive"
+	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="zend"
+	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="checkstyle"
 }
-main "$@"
+[[ $# -eq 0 ]] && phpdoc_cmd "jeffpack-include/jeffpack-lib" || phpdoc_cmd "$1"
+
