@@ -1,4 +1,5 @@
 <?php
+use Leafo\ScssPhp\Compiler;
 
 if ( ! class_exists('WpScss'))
 {
@@ -24,16 +25,15 @@ if ( ! class_exists('WpScss'))
      * @var array compile_errors - catches errors from compile
      */
     public function __construct ($scss_dir, $css_dir, $compile_method) {
-      $this->scss_dir = $scss_dir;
-      $this->css_dir = $css_dir;
-      $this->compile_method = $compile_method;
-
       global $scssc;
-      $scssc = new scssc();
-      $scssc->setFormatter($compile_method);
-      $scssc->setImportPaths($scss_dir);
-
+      $this->scss_dir       = $scss_dir;
+      $this->css_dir        = $css_dir;
+      $this->compile_method = $compile_method;
       $this->compile_errors = array();
+      $scssc                = new Compiler();
+
+      $scssc->setFormatter( $compile_method );
+      $scssc->setImportPaths( $scss_dir );
     }
 
    /**
@@ -168,6 +168,16 @@ if ( ! class_exists('WpScss'))
           return false;
         }
       }
+      public function style_url_enqueued($url){
+        global $wp_styles;
+        foreach($wp_styles->queue as $wps_name){
+          $wps = $wp_styles->registered[$wps_name];
+          if($wps->src == $url){
+            return $wps;
+          }
+        }
+        return false;
+      }
 
     /**
      * METHOD ENQUEUE STYLES
@@ -192,7 +202,9 @@ if ( ! class_exists('WpScss'))
               $ver,
               $media = 'all' );
 
-            wp_enqueue_style( $name );
+            if(!$this->style_url_enqueued($uri)){
+              wp_enqueue_style($name);
+            }
           }
         }
     }

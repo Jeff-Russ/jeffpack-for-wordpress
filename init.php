@@ -30,7 +30,7 @@ include_once 'lib/include.php';
 
 $jp_plugin = new JeffPack();
 if( is_admin() ) {
-  $jp_plugin->add_scss_settings_page();
+  $jp_plugin->addScssOptionsPage();
   include_once 'lib/wp-scss.php';
 }
 

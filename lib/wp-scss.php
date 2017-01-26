@@ -1,7 +1,7 @@
 <?php
 /*
 Originally from the WP-SCSS plugin which compiles scss files live on wordpress
-By Connect Think http://connectthink.com, ver 1.1.9, licensed with GPLv3
+By Connect Think http://connectthink.com, ver 1.2.2, licensed with GPLv3
 https://github.com/ConnectThink/WP-SCSS
  
  * Plugin Workflow
@@ -18,7 +18,18 @@ https://github.com/ConnectThink/WP-SCSS
  */
 
 // Add version to options table
-add_option('wpscss_version', '1.1.9');
+if ( get_option( 'wpscss_version' ) !== false ) {
+
+  // The option already exists, so we just update it.
+  update_option( 'wpscss_version', '1.2.2' );
+} else {
+
+    // The option hasn't been added yet. We'll add it with $autoload set to 'no'.
+    $deprecated = null;
+    $autoload = 'no';
+    add_option( 'wpscss_version', '1.2.2', $deprecated, $autoload );
+}
+
 /**
  * 3. REGISTER SETTINGS
  *
@@ -64,8 +75,8 @@ if( $scss_dir_setting == false || $css_dir_setting == false ) {
 
 // Checks if directory exists
 } elseif (
-  !file_exists($jp_plugin->info['theme']['dir_path'] . $scss_dir_setting) || 
-  !file_exists($jp_plugin->info['theme']['dir_path'] . $css_dir_setting)
+  !is_dir($jp_plugin->info['theme']['dir_path'] . $scss_dir_setting) || 
+  !is_dir($jp_plugin->info['theme']['dir_path'] . $css_dir_setting)
 ) {
   function wpscss_settings_error(){
       echo '<div class="error">
