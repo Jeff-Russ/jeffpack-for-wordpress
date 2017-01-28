@@ -8,6 +8,5 @@ include_once 'WpInfoHash.php';
 include_once 'WpSettingsHelper.php';
 
 include_once 'WpScssSettings.php';
-include_once 'Jeffpack.php';
 
 include_once 'WpScss.php';
