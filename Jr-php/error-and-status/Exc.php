@@ -1,0 +1,332 @@
+<?php
+namespace Jr;
+/**
+ * error-and-status/Exc.php Defined Exc class
+ * 
+ * @package    error-and-status
+ * @author     Jeff Russ
+ * @license    GPL-2.0
+ */
+
+/**
+ * The Exc class can be used the same way as it's parent Exception class
+ * without adding much overhead or can be used with more complex options 
+ * for adjusting the offset of the stack trace, which determines line and file
+ * properties and the output message. The parent get-() methods work the same
+ * but there are additional direct magic getter and setter properties for the
+ * parent properties and additional ones.  
+ * 
+ * @subpackage Jr\Exc
+ * @version    1.0
+ * @copyright  2017 Jeff Russ
+ */
+class Exc extends Exception
+{
+	//// OBJECT SPACE /////////////////////////////////////////////////////////
+	/**
+	 * All Properties on Exception, the parent, are either private
+	 * $string, $trace and $previous, or protected. All protected are 
+	 * redeclared here in so the persist to extending classes.
+	 * @var string $message Typically set by constructor 1st argument or is ''
+	 * @var int    $code    Typically set by constructor 2nd argument or is 0
+	 * @var string $file    File where object was created, can be changed
+	 * @var int    $line    Line where object was created, can be changed
+	 */protected $message, $code, $file, $line;
+
+	/**
+	 * Just like line and file are taken from trace, these are some more (protected).
+	 * @var string $function If set, function name where object was created, can be changed
+	 * @var string $class    If set, class name where object was created, can be changed
+	 * @var string $type     If set, '::' or '->' where object was created, can be changed
+	 * @var string $args     If set, arguments where where object was created, can be changed
+	 */protected $function, $class, $type, $args;
+
+	/**
+	 * Some extra protected properties settings added here
+	 * @var string $name  This, if unempty, is prepended to the message. See above.
+	 * @var string $time  A readable timestamp ex: '2017-01-20 7:04.30 PM'
+	 * @var string $key   A unique datetime.microsec ex: '1701201904.0305'
+	 * @var int    $pop   Offset trace to ajust file/line/etc. Value is absoluted
+	 */protected $name, $key, $time; protected $pop=0;
+
+	/**
+	 * Protected array properties which are never displayed
+	 * @var array $props  ['verbose'] (bool) is __toString() verbosity
+	 * @var array $cache  ['verbose'] is prev value in $props, ['string'] __toString() cache
+	 */protected $props = array( 'verbose'=>true );
+	   protected $cache = array( 'verbose'=>null, 'string'=>'' );
+	
+	/**
+	 * The constructors first argument can be an array. If you have indexes 0, 1, 2
+	 * they will be the same as arguments 1, 2 and 3 if they are a string, integer, 
+	 * and Exception object, in that order. But it's much more flexible than that. 
+	 * You can always specify which property you are setting by the key to a string 
+	 * of the property name or, if you have any numeric index, the following will be
+	 * interpreted based on the value's type:
+	 * 
+	 * 		$e = new Exc([ 'Message', '2', 255, false]);
+	 * 
+	 * String which only contain digits are interpreted as $pop, etc. This can be in 
+	 * any order and is the same as: 
+	 * 
+	 * 		$e = new Exc([['message'=>'Message','pop'=>'2','code'=>255,'verbose'=>false]);
+	 * 
+	 * or:  $e = new Exc([['Message','pop'=>'2', verbose'=>false], 255);
+	 * 
+	 * Everything else but $previous needs a name you can even define new ones and 
+	 * they will be added to the $props array. $previous is the odd one. You can 
+	 * have it in the array or as the 3rd arg but if it's in the array it must be 
+	 * namedor indexes 0, 1, or 2.
+	 * 
+	 * @param string|array $arg1     optional short error message or arguments array 
+	 * @param int          $code     optional error code
+	 * @param Exception    $previous optional previous error
+	 */
+	function __construct($arg1=null, $code=0, $prev=null)
+	{	# IF YOU CHANGE construct, CHANGE __construct in Exc to match it
+		
+		if (($is_array=is_array($arg1)) && $prev===null) {
+			if     (isset($arg1['previous'])) $prev=$arg1['prevous'];
+			elseif (isset($arg1[0])) {
+				if ($arg1[0] instanceof Exception) $prev=$arg1[0];
+				elseif (isset($arg1[1])) {
+					if ($arg1[1] instanceof Exception) $prev=$arg1[1];
+					elseif (isset($arg1[2])
+					  &&  $arg1[2] instanceof Exception) $prev=$arg1[2];
+				}
+			}
+		}
+		parent::__construct(is_string($arg1)?$arg1:'', $code, $prev);
+		if ($is_array) {
+			foreach ($arg1 as $prop=>$v) {
+				if (!is_integer($prop)) {
+					if ($prop==='verbose') $this->props['verbose'] = $v ?true:false;
+					elseif (property_exists($this, $prop)) $this->$prop = $v;
+					else $this->props[$prop] = $set;
+				}
+				elseif (is_integer($v))  $this->code = $v;
+				elseif (ctype_digit($v)) $this->pop = $v;
+				elseif (is_string($v))   $this->message = $v;
+				elseif (is_bool($v))     $this->props['verbose'] = $v;
+			}
+			/* The $trace our parent records is the same as if you called 
+			debug_backtrace() where the Exception object is created with 'new'. 
+			$trace[0] is the context that called that context and [1] the one before.
+			$line and $file are actually the frame after $trace[0] so it would be [-1]
+
+			So when we want to pop one frame off well get $trace[0], when we want to 
+			pop two frames off we'll get $trace[1]. So we'll do:
+			   $frame = $trace[ $pop - 1 ]
+			As for the max for pop, without this -1 we would want the top idx
+			of $trace, count($trace)-1 but we want just count($trace) */
+			$trace = $this->getTrace();
+			if ($this->pop!==0) $this->pop = min( abs($this->pop),count($trace) );
+
+			# adjust/create props based on adjusted trace and clipped pop
+			if ($this->pop!==0) foreach ($trace[ $this->pop-1 ] as $k=>$v) $this->$k=$v;
+		}
+		$usec_f = microtime(true); $usec = $usec_f - floor($usec_f);
+		$this->time = date("Y-m-d g:i.".(int)($usec*1000)." A");
+		$this->key = (string)(date("ymdHi")+$usec);
+	}
+
+	public function __toString()
+	{
+		$cache = extract($this->cache, EXTR_REFS);
+		if ($verbose===$this->props['verbose']) return $string;
+		else $verbose = $this->props['verbose'];
+		$str = empty($this->name) ?
+			get_called_class() : "'$this->name'"; # '' means it's a name
+		$str.= "[{$this->code}] $this->message\n";
+		$str.= "line {$this->line} in {$this->file}\n";
+
+		if ($this->props['verbose']===false) return $string = $str;
+
+		$str .= "\n  {$this->time}, '{$this->key}'\n  ";
+		$a = get_object_vars($this);
+		unset($a['code'],  $a['message'], $a['line'], $a['file'],
+		      $a['previous'], $a['time'], $a['key'], $a['trace']);
+		foreach ($a as $k=>$v) {
+			if (is_scalar($v)) {
+				if (is_bool($v)) $v = $v ? 'true':'false';
+				$str .= "$k: $v, ";
+			}
+		}
+		return $string = "$str\n{$this->trace}\n{$this->previous}";
+	}
+
+	public function __call($meth, $args) {
+		if ($meth==='__toArray'||$meth==='toArray'||$meth==='getArray') {
+			return $this->array;
+		}
+	}
+	/**
+	 * Magic getters and setters never produce errors or even notices. Setting 
+	 * a property that doesn't exist creates a new one inside the $props array.
+	 * Getting one that doesn't exist returns void. If this class is extended,
+	 * newly added properties will be available even if protected. If you want 
+	 * to block this, make them private. 
+	 * 
+	 * @property string $message set/get $exc->message When get, always verbose
+	 * @property string $key     set/get $exc->key  Useful if storing Exceptions
+	 * @property string $file    set/get $exc->file Overrides automatic setting
+	 * @property int    $line    set/get $exc->line Overrides automatic setting
+	 * @property int    $code    set/get $exc->code Change code after instantiation
+	 * @property bool   $verbose set/get $exc->verbose default true, __toString verbosity
+	 */
+	public function __set($prop, $set) {
+		$cache =& $this->cache['verbose'];
+
+		if (is_scalar($set)) {
+			if ( (is_string($set) && ($prop==='message'||$prop==='key'||$prop==='file'))
+			 || (is_int($set) && ($prop==='code'||$prop==='line')) || $set==='verbose'){
+			 	if ($set==='verbose') $set = $set ? true : false;
+				$this->$prop=$set; $cache=null; return;
+			}
+		}
+		$this->props[$prop] = $set;
+	}
+
+	/**
+	 * Note that $exc->array is the same as $exc->__toArray(), $exc->toArray(),
+	 * and $exc->getArray()
+	 * 
+	 * @property string $message set/get get the verbose version of the message
+	 * @property string $key     set/get get the float-string timestamp key 
+	 * @property string $file    set/get get the file
+	 * @property int    $line    set/get get the line number
+	 * @property int    $code    set/get get the integer error code
+	 * @property bool   $verbose set/get boolean of __toString verbosity
+	 * 
+	 * @property string $previous get-only Previous Exception's line/file + possibly key
+	 * @property string $trace    get-only $trace as string, similar to getTraceAsString();
+	 * @property int    $pop      get-only The stack trace offset set by constructor args
+	 * @property array  $array    get-only Important object variables as array
+	 */
+	public function __get($prop){
+		if ($prop==='message') {
+			$verb = $this->props['verbose'];
+			if ($verb && $verb = $this->cache['verbose'])
+				return $this->cache['string'];
+			
+			$this->props['verbose'] = false;
+			$message = $this->__toString();
+			$this->props['verbose'] = $verb;
+			return $message;
+		}
+		if ($prop==='trace') {
+			if (empty($t=$this->getTrace())) return '';
+			$trace = "  trace:";
+			foreach ($t as $i=>$f) {
+				if (is_array($f)) { 
+					foreach ($f as $k=>$v) {
+						if     ($k==='file')   $trace .= "\n   $i $k: $v,\n     ";
+						elseif (is_scalar($v)) $trace .= "$k: $v, ";
+					}
+				}
+			}
+			return $trace."\n";
+		}
+		if ($prop==='array') {
+			$a = get_object_vars($this);
+			unset($a['props'], $a['cache']);
+			return $a;
+		}
+		if ($prop==='previous') {
+			if (($p=$this->getPrevious())===null) return '';
+			else {
+				if ($p instanceof Exc)
+				     return "  previous: $p->key line $p->line $p->file\n";
+				else return "  previous: line ".$p->getLine()." ".$p->getFile()."\n";
+			}
+		}
+		# property_exists will be false if only declared in parent visibility does not matter!
+		if (property_exists($this, $prop)) return $this->$prop;
+		if (array_key_exists($prop,$this->props)) return $this->this->props[$prop];
+		else return null;
+	}
+}
+
+function array_string($arr,$opts='php') {
+    if (is_array($opts)) $opts['depth']++;
+    else {
+        if (!is_string($opts)) {
+            $in = $opts;
+            $opts = is_integer($in) ? "json" : 'php';
+            if ($in) $opts .= " pretty print";
+
+        }
+        $args = preg_split('/[^a-z0-9]/i', $opts);
+        if (in_array('json', $args))
+             $opts = array('open'=>'{','close'=>'}','sep'=>': ', 'integers'=>false);
+        else $opts = array('open'=>'[','close'=>']','sep'=>' => ','integers'=>true);
+        if (!in_array('pretty', $args)) $opts = $opts + array('indent'=>'','eol'=>'');
+        else $opts = $opts + array('indent'=>'  ','eol'=>"\n" );
+        $opts['depth'] = 1; #starts at 1
+        $opts['print'] = in_array('print', $args) || in_array('echo', $args) ? true:false;
+    }
+    end($arr); $last = key($arr);
+    $result = "$opts[open]$opts[eol]";
+    
+    foreach($arr as $k=>$v){
+        $result .= str_repeat($opts['indent'],$opts['depth']);
+        if (!$opts['integers']) $result .= "\"$k\"$opts[sep]";
+        else $result .= is_integer($k) ? " $k$opts[sep]" : "\"$k\"$opts[sep]";
+        if    (is_array($v))   $result .= array_string($v,$opts);
+        elseif(is_bool($v))    $result .= $v ? "true":"false";
+        elseif(is_numeric($v)) $result .= $v;
+        else                   $result .= "\"".addslashes($v)."\"";
+        $result .= $last===$k ? $opts['eol'] : ", $opts[eol]";
+    }
+    $opts['depth']--;
+    $result .= str_repeat($opts['indent'],$opts['depth']).$opts['close'];
+    if ($opts['depth']===0) {
+        $result .= $opts['eol'];
+        if ($opts['print']) echo $result;
+    }
+    return $result;
+
+
+    //// STATIC SPACE /////////////////////////////////////////////////////////
+}
+
+// class test { static function fun3($a1=null) { return new Exc($a1); } }
+// function fun2($a1=null) { return test::fun3($a1); }
+// function fun1($a1=null) { return fun2($a1); }
+// $e = fun1(['pop'=>4,'message']);
+// $e->message = "new messssage";
+// echo "$e";
+
+// class To {
+// 	static function string($var, $pop=0) {
+// 		if (is_scalar($var) || method_exists($var , '__toString')) return "$var";
+// 		$msg = ' cannot be converted to string';
+// 		$msg = ($t=gettype($var))==="object" ? get_class($var)." $t$msg" : $t.$msg;
+// 		throw new Exc(array("To::string: $msg", 'pop'=>$pop+1));
+// 	}
+// }
+
+// function run2() {
+// 	$arr = array();
+// 	$arr = new stdClass();
+// 	try { To::string($arr); }
+// 	catch (Exception $e) {
+// 		echo "$e";
+// 		throw new Exc(['rethrowing...', $e, 'pop'=>1]);
+// 	}
+// }
+// function run1() { run2(); }
+// run1();
+
+
+///////////////////////////////////////////////////////////////////////////////
+// unfinished: 
+// trait report {
+// 	protected static $actions_list = array(
+// 		'throw'=>1, 'store'=>1,
+// 		'fail'=>1,'error'=>1, 'warning'=>1, 'notice'=>1, # trigger_error
+// 		'warn'=>1, 'log'=>1, 'store'=>1,                  # js console
+// 		# add error_log and php log
+// 	);
+// 	protected $actions;
+// }
