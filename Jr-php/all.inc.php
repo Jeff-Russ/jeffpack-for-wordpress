@@ -31,3 +31,10 @@ if (! class_exists('scssc', false)) {
     include_once 'dependencies/scssphp/src/Version.php';
     include_once 'dependencies/scssphp/src/Server.php';
 }
+
+include_once 'error-and-status/Status.php';
+include_once 'error-and-status/Exc.php';
+include_once 'error-and-status/To.php';
+include_once 'error-and-status/test.php';
+
+include_once 'Tree.php';

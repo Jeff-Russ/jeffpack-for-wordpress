@@ -109,78 +109,6 @@ if ( ! trait_exists('TPersistArgs')) {
 		}
 
 		/**
-		* This static method is useful for intializing an array from an unknown 
-		* variable. It does not modify the object or it's arguments and is use 
-		* only for it's return usually to assign to an array variable.  
-		* 
-		* A new array is returned from the contents of $args which 
-		* could be an array itself, a single value or null. The second argument 
-		* defines a key to be created if a value not associated with a string 
-		* key is found. The return is always an array.
-		* 
-		* If $args is null an empty array is return and $key is not used.
-		* If $args is not an array and not null, that value is added to a new 
-		* array at $key and the array is return.
-		* If $args is an array lacking $key but has a value at $args[0], 
-		* that value is moved to $args[$key] and $args[0] is deleted.
-		* If $args is an array but there is no $args[0], it's returned as is. 
-		*
-		* @param  mixed   $args is array or anything else
-		* @param  mixed   $key is a hypothetical array key, usually a string
-		* @return array   a new array or a copy of $args if it it an array.
-		* @access public
-		*/
-		static public function toArrayAsKey($args, $key) #PUBLIC!
-		{
-			if (! is_array($args) ): 
-				if ($args !== null):
-					$args = array($key => $args);
-				else:
-					$args = array();
-				endif;
-			elseif (array_key_exists(0, $args) && !array_key_exists($key, $args) ):
-				$args[$key] = $args[0];
-				unset($args[0]);
-			endif;
-			return $args;
-		}
-
-		/**
-		* This method gets a desired value from either the $args parameter or 
-		* $this->args and synchronizes them as a side effect. 
-		* 
-		* This method modifies both $this->args and $args to mirror each other
-		* and return a desired value from either of them or a default value if 
-		* not found (defaults to null). $key must be provided to determine which 
-		* element is to be returned
-		* 
-		* If $args anything not an array but not null, it's assigned to both 
-		* $args at $key and returned. 
-		* 
-		* If $args is an array it's merged in both directions with $this->args 
-		* overriding any matching keys found in $this->args. If $key is found 
-		* in either, it's value is returned, or else $default is returned. 
-		* 
-		* @param  mixed   $args is array or anything else
-		* @param  mixed   $key is a hypothetical array key, usually a string
-		* @param  mixed   $default (optional) return if value can't be found (defaults to null)
-		* @return mixed   the value finally residing in args[$key] or $default
-		* @access protected
-		*/
-		protected function getArgAndSync(&$args, $key, $default=null)
-		{
-			if ( is_array($args) ):
-				$this->args = array_merge($this->args, $args);
-			elseif ( $args !== null ):
-				$this->args[$key] = $args;
-			endif;
-			$args = $this->args;
-			if ( array_key_exists($key, $args) )
-				return $args[$key];
-			else
-				return $default;
-		}
-		/**
 		* This method updates $this->args from the argument values and returns
 		* it even if no change occured. It does not modify either argument so 
 		* if you'd like to synchronize them you should use this method's return 
@@ -245,4 +173,76 @@ if ( ! trait_exists('TPersistArgs')) {
 			return $this->args;
 		}
 	}
+	// /**
+	// * This static method is useful for intializing an array from an unknown 
+	// * variable. It does not modify the object or it's arguments and is use 
+	// * only for it's return usually to assign to an array variable.  
+	// * 
+	// * A new array is returned from the contents of $args which 
+	// * could be an array itself, a single value or null. The second argument 
+	// * defines a key to be created if a value not associated with a string 
+	// * key is found. The return is always an array.
+	// * 
+	// * If $args is null an empty array is return and $key is not used.
+	// * If $args is not an array and not null, that value is added to a new 
+	// * array at $key and the array is return.
+	// * If $args is an array lacking $key but has a value at $args[0], 
+	// * that value is moved to $args[$key] and $args[0] is deleted.
+	// * If $args is an array but there is no $args[0], it's returned as is. 
+	// *
+	// * @param  mixed   $args is array or anything else
+	// * @param  mixed   $key is a hypothetical array key, usually a string
+	// * @return array   a new array or a copy of $args if it it an array.
+	// * @access public
+	// */
+	// static public function toArrayAsKey($args, $key) #PUBLIC!
+	// {
+	// 	if (! is_array($args) ): 
+	// 		if ($args !== null):
+	// 			$args = array($key => $args);
+	// 		else:
+	// 			$args = array();
+	// 		endif;
+	// 	elseif (array_key_exists(0, $args) && !array_key_exists($key, $args) ):
+	// 		$args[$key] = $args[0];
+	// 		unset($args[0]);
+	// 	endif;
+	// 	return $args;
+	// }
+
+	// /**
+	// * This method gets a desired value from either the $args parameter or 
+	// * $this->args and synchronizes them as a side effect. 
+	// * 
+	// * This method modifies both $this->args and $args to mirror each other
+	// * and return a desired value from either of them or a default value if 
+	// * not found (defaults to null). $key must be provided to determine which 
+	// * element is to be returned
+	// * 
+	// * If $args anything not an array but not null, it's assigned to both 
+	// * $args at $key and returned. 
+	// * 
+	// * If $args is an array it's merged in both directions with $this->args 
+	// * overriding any matching keys found in $this->args. If $key is found 
+	// * in either, it's value is returned, or else $default is returned. 
+	// * 
+	// * @param  mixed   $args is array or anything else
+	// * @param  mixed   $key is a hypothetical array key, usually a string
+	// * @param  mixed   $default (optional) return if value can't be found (defaults to null)
+	// * @return mixed   the value finally residing in args[$key] or $default
+	// * @access protected
+	// */
+	// protected function getArgAndSync(&$args, $key, $default=null)
+	// {
+	// 	if ( is_array($args) ):
+	// 		$this->args = array_merge($this->args, $args);
+	// 	elseif ( $args !== null ):
+	// 		$this->args[$key] = $args;
+	// 	endif;
+	// 	$args = $this->args;
+	// 	if ( array_key_exists($key, $args) )
+	// 		return $args[$key];
+	// 	else
+	// 		return $default;
+	// }
 }

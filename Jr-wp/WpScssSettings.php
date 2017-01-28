@@ -1,6 +1,6 @@
 <?php
 namespace Jr;
-if (!class_exists('WpScssSettings')){ class WpScssSettings extends MainSettingsPage {
+if (!class_exists('WpScssSettings')){ class WpScssSettings extends WpSettingsHelper {
 	
 
 	private $options;# Holds the values to be used in the fields callbacks

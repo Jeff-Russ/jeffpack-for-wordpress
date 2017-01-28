@@ -29,7 +29,7 @@ include_once 'all.inc.php';
 $jp_plugin = new JeffPack();
 if (is_admin()) {
   $jp_plugin->addScssOptionsPage();
-  include_once 'Jr-wp/wp-scss.php';
+  // include_once 'Jr-wp/wp-scss.php';
 }
 
 add_action( 'wp_dashboard_setup', function() use ($jp_plugin)
@@ -62,7 +62,7 @@ add_action( 'wp_dashboard_setup', function() use ($jp_plugin)
 // $jp_plugin->addEmptyMenu(['menu_title' => "Menu I"]);
 
 $menu_slug = $jp_plugin
-  ->addAdminMenu()
+  ->addAdminMenu("Jeffpack")
   ->addAdminPage("Subpage1", "Submenu1")
   ->addSetting("Setting1", "Setting1def")
   ->addAdminPage("Subpage2", "Submenu2")

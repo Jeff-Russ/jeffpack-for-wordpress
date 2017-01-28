@@ -43,8 +43,6 @@ include_once substr( __FILE__, 0, strpos(__FILE__, "wp-content") ).'wp-admin/inc
 include_once 'Jr-wp/WpInfoHash.php';
 include_once 'Jr-wp/WpSettingsHelper.php';
 
-include_once 'Jr-wp/JeffpackCore.php';
-include_once 'Jr-wp/MainSettingsPage.php';
 include_once 'Jr-wp/WpScssSettings.php';
 include_once 'Jr-wp/Jeffpack.php';
 

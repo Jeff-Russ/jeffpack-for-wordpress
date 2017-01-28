@@ -7,8 +7,6 @@ include_once substr( __FILE__, 0, strpos(__FILE__, "wp-content") ).'wp-admin/inc
 include_once 'WpInfoHash.php';
 include_once 'WpSettingsHelper.php';
 
-include_once 'JeffpackCore.php';
-include_once 'MainSettingsPage.php';
 include_once 'WpScssSettings.php';
 include_once 'Jeffpack.php';
 
