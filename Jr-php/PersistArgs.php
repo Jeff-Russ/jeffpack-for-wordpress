@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 /**
  * PersistArgs is and abstract class to give your class a better way to 
  * parse accept method arguments and persist data between calls to avoid

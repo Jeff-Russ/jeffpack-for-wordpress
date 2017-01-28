@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 /**
  * HelperModule is a collection of static methods mostly for general php useages
  * 
