@@ -1,5 +1,5 @@
 <?php
-
+namespace Jr;
 foreach (glob("error-and-status/*.php") as $f) include_once $f; 
 
 class Tree

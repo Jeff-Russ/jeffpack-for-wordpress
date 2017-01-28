@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 class To {
 	static function string($var, $pop=0) {
 		if (is_scalar($var) || method_exists($var , '__toString')) return "$var";

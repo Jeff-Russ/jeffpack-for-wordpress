@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 class test {
     protected $prop;
     

@@ -19,7 +19,7 @@ phpdoc () {
 	local phpdoc_exec="$phpdoc_repo/bin/phpdoc"
 
 	mkdir -p "$wd/$1/phpdoc"
-	"$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="clean"
+	"$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --ignore="dependencies/" --template="clean"
 	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="old-ocean"
 	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="responsive"
 	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="zend"
