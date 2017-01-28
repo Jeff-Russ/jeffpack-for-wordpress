@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 use Leafo\ScssPhp\Compiler;
 
 if ( ! class_exists('WpScss'))

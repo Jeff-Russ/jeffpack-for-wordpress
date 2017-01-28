@@ -15,5 +15,5 @@ phpdoc_cmd () {
 	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="zend"
 	# "$phpdoc_exec" -d "$wd/$1" -t "$wd/$1/phpdoc" --template="checkstyle"
 }
-[[ $# -eq 0 ]] && phpdoc_cmd "jeffpack-include/jeffpack-lib" || phpdoc_cmd "$1"
+phpdoc_cmd "$1"
 

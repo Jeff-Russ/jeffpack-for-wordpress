@@ -1,5 +1,5 @@
 <?php
-
+namespace Jr;
 if (!class_exists('WpScssSettings')){ class WpScssSettings extends MainSettingsPage {
 	
 

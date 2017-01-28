@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 /**
  * WpSettingsHelper helps maintain a plugin options page as well as access options 
  * values in your WordPress Plugin. It makes heavy use of the PersistArgs class 
@@ -145,8 +146,8 @@ if ( ! class_exists('WpSettingsHelper')) {
 					$page_slug = $this->info['plugin']['prefix'].'_settings'; break;
 				default:
 					if (is_null($page_slug)) {
-						$snake_loc = $this->toSnakeCase($menu_location);
-						$snake_title = $this->toSnakeCase($menu_title);
+						$snake_loc = to_snake($menu_location);
+						$snake_title = to_snake($menu_title);
 						$page_slug = $this->info['plugin']['prefix']
 							. "_${snake_loc}_${snake_title}";
 					}
@@ -247,7 +248,7 @@ if ( ! class_exists('WpSettingsHelper')) {
 		{
 			if ($args === null) $args = array();
 			$page_slug = $this->getArg($args, 'page_slug');
-			$section_id = $page_slug . '_' . $this->toSnakeCase($section_title);
+			$section_id = $page_slug . '_' . to_snake($section_title);
 
 			array_push( $this->info['settings_pages'][$page_slug]['sections'], $section_id );
 
@@ -300,7 +301,7 @@ if ( ! class_exists('WpSettingsHelper')) {
 		{
 			if ($args === null) $args = array();
 			$section_id = $this->getArg($args, 'section_id');
-			$setting_id = "${section_id}_" . $this->toSnakeCase($setting_label);
+			$setting_id = "${section_id}_" . to_snake($setting_label);
 
 			$section_info = $this->info['settings_sections'][$section_id];
 			array_push( $this->info['settings_sections'][$section_id]['settings'], $setting_id );

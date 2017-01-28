@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 /**
  * Jeffpack for WordPress
  *
@@ -19,19 +20,16 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if (!defined('ABSPATH')) exit;
 
-include_once 'lib/include.php';
-// include_once 'jeffpack-include/jeffpack-lib/z_old/scss.inc.php'; // Sass Compiler (vendor)
-// include_once 'jeffpack-include/jeffpack-lib/jr_wp_lib/WpScss.php'; // Compiling Manager
-// include_once 'jeffpack-plugin/include.php'; // Compiling Manager
+include_once 'all.inc.php';
 
 // include_once 'jeffpack-plugin/JpScssSettings.php'; // Options page class
 
 $jp_plugin = new JeffPack();
-if( is_admin() ) {
+if (is_admin()) {
   $jp_plugin->addScssOptionsPage();
-  include_once 'lib/wp-scss.php';
+  include_once 'Jr-wp/wp-scss.php';
 }
 
 add_action( 'wp_dashboard_setup', function() use ($jp_plugin)

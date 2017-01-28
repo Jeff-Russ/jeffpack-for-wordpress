@@ -1,7 +1,7 @@
 <?php
 namespace Jr;
 /**
- * PersistArgs is and abstract class to give your class a better way to 
+ * TPersistArgs is a trait to give your class a better way to 
  * parse accept method arguments and persist data between calls to avoid
  * nested callback and reduce the number or required arguments, keeping your code DRY.
  * 
@@ -12,9 +12,9 @@ namespace Jr;
  * @copyright   2016 Jeff Russ
  * @license     GPL-2.0
  */
-if ( ! class_exists('PersistArgs')) {
+if ( ! trait_exists('TPersistArgs')) {
 	/**
-	 * PersistArgs is and abstract class to give your class a better way to 
+	 * TPersistArgs is a trait to give your class a better way to 
 	 * parse accept method arguments and persist data between calls to avoid
 	 * nested callback and reduce the number or required arguments, keeping your code DRY.
 	 * 
@@ -34,7 +34,7 @@ if ( ! class_exists('PersistArgs')) {
 	 * method call to provide a sort of context. If the argument is not supplied, 
 	 * values from $this-args is used instead. 
 	 */
-	abstract class PersistArgs extends HelperModule {
+	trait TPersistArgs {
 
 		/** @var array olds whatever variables are needed between calls */
 		public $args = array();

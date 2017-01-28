@@ -1,4 +1,5 @@
 <?php
+namespace Jr;
 /**
  * WpInfoHash is a set of methods which which gather all information needed by 
  * a plugin or theme and stores them to $this->info, an array. It is meant to
@@ -28,8 +29,9 @@ if ( ! class_exists('WpInfoHash'))
 	 * admin panel or a file, etc and can be used to enforce minimum PHP and 
 	 * WordPress versions. 
 	 */
-	class WpInfoHash extends PersistArgs # extends HelperModule
+	class WpInfoHash
 	{
+		use TPersistArgs;
 		#__ Properties ____________________________________________________________
 
 		/** @var array holding plugin, WordPress, PHP and server data */
@@ -198,8 +200,7 @@ if ( ! class_exists('WpInfoHash'))
 			$array['dir_path'] = dirname($plugin_file);
 			$array['main_php'] = basename($plugin_file, ".php");
 			$array['slug'] = trim(dirname(plugin_basename($plugin_file)), '/');
-			$array['prefix'] = $this->toSnakeCase(
-										basename($array['slug']) );
+			$array['prefix'] = to_snake( basename($array['slug']) );
 			$array['url'] = WP_PLUGIN_URL.'/'.$array['slug'];
 			$array['file_path'] = $plugin_file;
 			$array['basename'] = plugin_basename($plugin_file);
@@ -237,7 +238,7 @@ if ( ! class_exists('WpInfoHash'))
 			$array['network']        = $wp_theme_obj->get('Network');
 			$array['dir_path']       = $wp_theme_obj->get_stylesheet_directory();
 			$array['slug']           = $wp_theme_obj->get_stylesheet();
-			$array['prefix']         = $this->toSnakeCase( $array['slug'] );
+			$array['prefix']         = to_snake( $array['slug'] );
 			$array['template_dir']   = $wp_theme_obj->get_template_directory();
 			$array['template']       = $wp_theme_obj->get_template();
 			$array['screenshot']     = $wp_theme_obj->get_screenshot('relative');

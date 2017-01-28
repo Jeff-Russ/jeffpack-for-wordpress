@@ -1,4 +1,5 @@
 <?php
+
 /*
 Originally from the WP-SCSS plugin which compiles scss files live on wordpress
 By Connect Think http://connectthink.com, ver 1.2.2, licensed with GPLv3
@@ -108,7 +109,7 @@ $wpscss_settings = array(
  * If needs_compiling passes, runs compile method
  */
 
-$wpscss_compiler = new WpScss(
+$wpscss_compiler = new \Jr\WpScss(
   $wpscss_settings['scss_dir'],
   $wpscss_settings['css_dir'],
   $wpscss_settings['compiling']

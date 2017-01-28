@@ -1,7 +1,7 @@
 <?php
 
-include_once 'HelperModule.php';
-include_once 'PersistArgs.php';
+include_once 'functions.php';
+include_once 'TPersistArgs.php';
 
 if (! class_exists('scssc', false)) {
     if (version_compare(PHP_VERSION, '5.4') < 0) {
